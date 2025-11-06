@@ -19,8 +19,9 @@ public struct TaxionPicker : View {
         _taxion = taxion
         _taxionomy = taxionomie
         self.done = done
-        choix = taxion.wrappedValue.dim == 0 ? taxionomie.wrappedValue.zero :
-        taxionomie.wrappedValue.levels[taxion.wrappedValue.dim].children(taxion.wrappedValue)
+        let selected = taxion.wrappedValue
+        choix = selected.dim == 0 ? taxionomie.wrappedValue.zero :
+        taxionomie.wrappedValue.levels[selected.dim - 1].children(selected)
     }
     
     func select() {
