@@ -5,7 +5,7 @@
 import SwiftUI
 
 public struct Manager : View {
-    @State var taxionomy = Taxionomy(taxionomie)
+    @State var taxionomy = Taxionomy(taxionomie2)
     @State var selected = 0
     
     @State var taxion = Taxion()

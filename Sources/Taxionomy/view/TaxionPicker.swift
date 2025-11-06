@@ -120,7 +120,7 @@ public struct TaxionPicker : View {
 }
 
 struct TaxionPrepicker : View {
-    @State var taxionomy = Taxionomy(taxionomie)
+    @State var taxionomy = Taxionomy(taxionomie2)
     @State var taxion = Taxion()
     
     var body : some View {
