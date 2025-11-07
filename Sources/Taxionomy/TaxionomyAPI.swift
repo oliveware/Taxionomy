@@ -4,7 +4,7 @@
 
 import SwiftUI
 
-public struct Manager : View {
+public struct TaxionomyAPI : View {
     @Binding var taxionomy : Taxionomy
     @State var selected = 0
     
@@ -26,13 +26,13 @@ public struct Manager : View {
     }
 }
 
-struct ManagePreview: View {
+struct TaxionomyAPIpreview: View {
     @State var taxionomy = Taxionomy(taxionomie2)
     var body: some View {
-        Manager($taxionomy)
+        TaxionomyAPI($taxionomy)
     }
 }
 
 #Preview {
-    ManagePreview()
+    TaxionomyAPIpreview()
 }
