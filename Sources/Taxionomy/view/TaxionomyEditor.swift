@@ -10,8 +10,14 @@ import SwiftUI
 public struct TaxionomyEditor : View {
     @Binding var taxionomy : Taxionomy //(taxionomie)
     @State var taxion = Taxion()
-    @State var picker = true
-    @State var creation = false
+    @State var action = Step.pick
+    
+    enum Step {
+        case pick
+        case create
+        case maj
+        case delete
+    }
     
     public init(_ taxionomie:Binding<Taxionomy>) {
         _taxionomy = taxionomie
@@ -20,38 +26,42 @@ public struct TaxionomyEditor : View {
     public var body : some View {
         
         VStack {
-            if picker {
-                TaxionPicker($taxion, $taxionomy, {})
-                
-                HStack {
-                    if taxion.dim > 0 {
-                        Button("modifier", action: {
-                            picker = false
-                            creation = false})
+            switch action {
+            case .pick :
+                    TaxionPicker($taxion, $taxionomy, {})
+                    
+                    HStack {
+                        if taxion.dim > 0 {
+                            Button("supprimer", action: { action = .delete })
+                            Button("modifier", action: { action = .maj })
+                        }
+                        Button("ajouter", action: { action = .create })
                     }
-                    Button("ajouter", action: {
-                        picker = false
-                        creation = true
-                    })
-                }
-            } else {
-                if creation {
-                    TaxionCreator($taxion, create)
-                } else {
-                    TaxionEditor($taxion, maj)
-                }
+            case .create :
+                TaxionCreator($taxion, create)
+            case .maj :
+                TaxionEditor($taxion, maj)
+            case .delete :
+                Button("confirmer la suppression de \(taxion.nom)", action: { delete() })
             }
         }
     }
     
     func create() {
         taxionomy.add(taxion)
-        picker = true
+        action = .pick
     }
     
     func maj() {
         taxionomy.maj(taxion)
-        picker = true
+        action = .pick
+    }
+    
+    func delete() {
+        let parent = taxion.parent
+        taxionomy.delete(taxion)
+        taxion = parent
+        action = .pick
     }
     
     

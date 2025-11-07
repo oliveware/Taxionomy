@@ -21,6 +21,16 @@ struct Taxions : Codable {
         items = new
     }
     
+    mutating func delete(_ taxion:Taxion) {
+        var new : [Taxion] = []
+        for item in items {
+            if item.type != taxion.type {
+                new.append(item)
+            }
+        }
+        items = new
+    }
+    
     mutating func add(_ taxion: Taxion) {
         var new = taxion
         new.type.append(nextid)

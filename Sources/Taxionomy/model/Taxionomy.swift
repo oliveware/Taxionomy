@@ -39,6 +39,10 @@ public struct Taxionomy: Codable {
     mutating func maj(_ taxion: Taxion) {
         levels[taxion.dim-1].maj(taxion)
     }
+    
+    mutating func delete(_ taxion: Taxion) {
+        levels[taxion.dim-1].delete(taxion)
+    }
 }
 
 
