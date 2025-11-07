@@ -65,9 +65,9 @@ public struct Taxion : Codable, Identifiable {
     }*/
     mutating func changenom(_ string:String) {
         if dim > 0 {
-            noms[dim-1] = nom
+            noms[dim-1] = string
         } else {
-            noms = [nom]
+            noms = [string]
         }
     }
     var nom:String {
