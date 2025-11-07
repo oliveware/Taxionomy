@@ -74,7 +74,16 @@ public struct Taxion : Codable, Identifiable {
         dim > 0 ? noms[dim-1] : "NaN"
     }
     var short:String {
-        dim > 3 ? noms[dim-2] + " " + nom : nom
+        dim > 2 ? noms[dim-2] + " " + nom : nom
+    }
+    var root: String {
+        var string = ""
+        if dim > 2 {
+            for n in 0..<dim-2 {
+                string = string + " " + noms[n]
+            }
+        }
+        return string
     }
     public func complet(_ sep:String = " ") -> String {
         if dim > 0 {

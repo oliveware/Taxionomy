@@ -14,6 +14,7 @@ public struct TaxionomyEditor : View {
     
     enum Step {
         case pick
+        case action
         case create
         case maj
         case delete
@@ -26,17 +27,28 @@ public struct TaxionomyEditor : View {
     public var body : some View {
         
         VStack {
+            if action != .pick && taxion.dim > 0 {
+                HStack {
+                    Text(taxion.root)
+                }
+            }
             switch action {
             case .pick :
-                    TaxionPicker($taxion, $taxionomy, {})
-                    
-                    HStack {
-                        if taxion.dim > 0 {
-                            Button("supprimer", action: { action = .delete })
-                            Button("modifier", action: { action = .maj })
+                TaxionPicker($taxion, $taxionomy, {action = .action})
+            case .action:
+                TaxionShow(taxion)
+                HStack {
+                    if taxion.dim >= 0 {
+                        Button("choisir un autre type", action: { action = .pick })
+                        Spacer()
+                        Button("supprimer", action: { action = .delete })
+                        Button("modifier", action: { action = .maj })
+                        if taxion.dim < 6 {
+                            Button("ajouter", action: { action = .create })
                         }
-                        Button("ajouter", action: { action = .create })
+                        Spacer()
                     }
+                }
             case .create :
                 TaxionCreator($taxion, create)
             case .maj :
@@ -44,7 +56,8 @@ public struct TaxionomyEditor : View {
             case .delete :
                 Button("confirmer la suppression de \(taxion.nom)", action: { delete() })
             }
-        }
+           
+        }.padding()
     }
     
     func create() {

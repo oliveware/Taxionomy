@@ -15,10 +15,10 @@
 import SwiftUI
 
 public struct TaxionView : View {
-    @State var taxionomy = Taxionomy(taxionomie)
+    @State var taxionomy = Taxionomy(taxionomie2)
     @Binding var taxion: Taxion
-    @State var edition: Bool = false
     @State var picker = false
+    @State var detail = false
     
     public init(_ taxion:Binding<Taxion>, _ taxionomie:Taxionomy) {
         _taxion = taxion
@@ -31,36 +31,19 @@ public struct TaxionView : View {
     
     public var body : some View {
         VStack( alignment:.leading) {
-            
-                if edition {
-                    if picker {
-                        HStack(alignment: .top) {
-                            TaxionPicker($taxion, $taxionomy, {picker = false})
-                            if taxion.dim > 0 {
-                                Button(action: {picker = false})
-                                {Image(systemName: "checkmark")}
-                            }
-                        }
+            if picker {
+                TaxionPicker($taxion, $taxionomy, {picker = false})
+            } else {
+                HStack {
+                    if taxion.dim == 0 {
+                        Text("choisir un type")
                     } else {
-                        HStack {
-                            Text(taxion.complet())
-                            Button(action: {picker = true})
-                            {Image(systemName: "pencil")}
-                        }
-                        
-                        HStack {
-                            TaxionCreator($taxion, {})
-                            Button(action: {edition = false})
-                            {Image(systemName: "checkmark")}
-                        }
+                        Text(taxion.complet())
                     }
-                } else {
-                    HStack {
-                        TaxionShow(taxion)
-                        Button(action: {edition = true})
-                        {Image(systemName: "pencil")}
-                    }
+                    Button(action: {picker = true})
+                    {Image(systemName: "pencil")}
                 }
+            }
             
             Spacer()
         }.padding()
@@ -72,7 +55,7 @@ struct TaxionPreview : View {
     @State var taxion = Taxion()
     
     var body : some View {
-        TaxionView($taxion, taxionomy)
+        TaxionView($taxion, taxionomy).frame(width:700,height:400)
     }
 }
 

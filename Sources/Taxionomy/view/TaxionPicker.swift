@@ -73,17 +73,16 @@ public struct TaxionPicker : View {
     }
     
     func children (_ taxion:Taxion) -> [Taxion] {
-        var found : [Taxion] = []
+        var liste : [Taxion] = []
         if taxion.dim < taxionomy.levels.count {
             let children = taxionomy.levels[taxion.dim].children(taxion)
-            found = taxion.dim > 2  ? children.sorted(by: <) : children
+            liste = taxion.dim > 2  ? children.sorted(by: <) : children
         }
-        return found
+        return liste
     }
     
     public var body : some View {
         HStack( alignment:.top) {
-            if pick {
                 barre
                 
                 if choix.count > 0 {
@@ -109,11 +108,15 @@ public struct TaxionPicker : View {
                     {Image(systemName: "checkmark")}
                 }
                 Spacer()
-            } else {
-                Text(taxion.complet())
+        /*    } else {
+                if taxion.dim > 0 {
+                    Text(taxion.complet())
+                } else {
+                    Text("choisir un type")
+                }
                 Button(action:{pick = true})
                 {Image(systemName: "pencil")}
-            }
+            }*/
         }.frame(width:600, height:300, alignment:.leading)
             .padding()
     }

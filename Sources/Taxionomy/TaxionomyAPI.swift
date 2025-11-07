@@ -5,12 +5,14 @@
 import SwiftUI
 
 public struct Manager : View {
-    @State var taxionomy = Taxionomy(taxionomie2)
+    @Binding var taxionomy : Taxionomy
     @State var selected = 0
     
-    @State var taxion = Taxion()
+    public init(_ taxionomy:Binding<Taxionomy>) {
+        _taxionomy = taxionomy
+    }
     
-    public init() {}
+    @State var taxion = Taxion()
     
     public var body: some View {
         TabView(selection: $selected) {
@@ -24,6 +26,13 @@ public struct Manager : View {
     }
 }
 
+struct ManagePreview: View {
+    @State var taxionomy = Taxionomy(taxionomie2)
+    var body: some View {
+        Manager($taxionomy)
+    }
+}
+
 #Preview {
-    Manager()
+    ManagePreview()
 }

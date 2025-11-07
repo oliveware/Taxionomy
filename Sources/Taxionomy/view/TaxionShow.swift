@@ -30,22 +30,27 @@ public struct TaxionShow : View {
     
     public var body : some View {
         VStack(alignment:.leading) {
-            HStack {
-                Spacer()
-                Text(taxion.short).font(.title)
-                Spacer()
+            Spacer()
+            if taxion.dim == 0 {
+                Text("choisir un type")
+            } else {
+                
+                HStack {
+                    Spacer()
+                    Text(taxion.short).font(.title)
+                    Spacer()
+                }
+                if let car = taxion.car {
+                    Text("caractéristiques").font(.caption)
+                        .padding(.top, 10)
+                    Text(car)
+                }
+                if let use = taxion.use {
+                    Text("conseil d'utilisation").font(.caption)
+                        .padding(.top, 10)
+                    Text(use)
+                }
             }
-            if let car = taxion.car {
-                Text("caractéristiques").font(.caption)
-                    .padding(.top, 10)
-                Text(car)
-            }
-            if let use = taxion.use {
-                Text("conseil d'utilisation").font(.caption)
-                    .padding(.top, 10)
-                Text(use)
-            }
-            
             Spacer()
         }.padding()
     }
