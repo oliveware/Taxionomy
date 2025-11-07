@@ -743,27 +743,6 @@ public let taxionomie2 = """
  , {"type":[2,10,46,174] , "noms":["habitat","consommable","telecom","internet"]}
  , {"type":[2,10,46,175] , "noms":["habitat","consommable","telecom","cloud"]}
  , {"type":[2,10,47] , "noms":["habitat","consommable","papeterie"]}
- , {"type":[2,10,47] , "noms":["habitat","consommable","papeterie"]}
- , {"type":[2,10,47] , "noms":["habitat","consommable","papeterie"]}
- , {"type":[2,10,47] , "noms":["habitat","consommable","papeterie"]}
- , {"type":[2,10,47] , "noms":["habitat","consommable","papeterie"]}
- , {"type":[2,10,47] , "noms":["habitat","consommable","papeterie"]}
- , {"type":[2,10,47] , "noms":["habitat","consommable","papeterie"]}
- , {"type":[2,10,47] , "noms":["habitat","consommable","papeterie"]}
- , {"type":[2,10,47] , "noms":["habitat","consommable","papeterie"]}
- , {"type":[2,10,47] , "noms":["habitat","consommable","papeterie"]}
- , {"type":[2,10,47] , "noms":["habitat","consommable","papeterie"]}
- , {"type":[2,10,47] , "noms":["habitat","consommable","papeterie"]}
- , {"type":[2,10,47] , "noms":["habitat","consommable","papeterie"]}
- , {"type":[2,10,47] , "noms":["habitat","consommable","papeterie"]}
- , {"type":[2,10,47] , "noms":["habitat","consommable","papeterie"]}
- , {"type":[2,10,47] , "noms":["habitat","consommable","papeterie"]}
- , {"type":[2,10,47] , "noms":["habitat","consommable","papeterie"]}
- , {"type":[2,10,47] , "noms":["habitat","consommable","papeterie"]}
- , {"type":[2,10,47] , "noms":["habitat","consommable","papeterie"]}
- , {"type":[2,10,47] , "noms":["habitat","consommable","papeterie"]}
- , {"type":[2,10,47] , "noms":["habitat","consommable","papeterie"]}
- , {"type":[2,10,47] , "noms":["habitat","consommable","papeterie"]}
  , {"type":[3] , "noms":["soins"]}
  , {"type":[3,11] , "noms":["soins","médecin"]}
  , {"type":[3,11,48] , "noms":["soins","médecin","généraliste"]}
