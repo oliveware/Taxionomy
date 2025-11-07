@@ -61,7 +61,7 @@ public struct TaxionomyEditor : View {
     }
     
     func create() {
-        taxionomy.add(taxion)
+        taxion = taxionomy.add(taxion)
         action = .pick
     }
     

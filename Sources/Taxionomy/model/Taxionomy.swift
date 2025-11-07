@@ -32,8 +32,8 @@ public struct Taxionomy: Codable {
     
     var zero:   [Taxion] { levels[0].items }
     
-    mutating func add(_ taxion:Taxion) {
-        levels[taxion.dim-1].add(taxion)
+    mutating func add(_ taxion:Taxion) -> Taxion {
+        return levels[taxion.dim-1].add(taxion)
     }
     
     mutating func maj(_ taxion: Taxion) {

@@ -31,10 +31,11 @@ struct Taxions : Codable {
         items = new
     }
     
-    mutating func add(_ taxion: Taxion) {
+    mutating func add(_ taxion: Taxion) -> Taxion {
         var new = taxion
         new.type.append(nextid)
         items.append(new)
+        return new
     }
     private var nextid: Int {
         let dim = items[0].dim - 1
