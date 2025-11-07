@@ -743,143 +743,225 @@ public let taxionomie2 = """
  , {"type":[2,10,46,174] , "noms":["habitat","consommable","telecom","internet"]}
  , {"type":[2,10,46,175] , "noms":["habitat","consommable","telecom","cloud"]}
  , {"type":[2,10,47] , "noms":["habitat","consommable","papeterie"]}
- , {"type":[2,11] , "noms":["habitat","outillage"]}
- , {"type":[2,11,48] , "noms":["habitat","outillage","manuel"]}
- , {"type":[2,11,48,176] , "noms":["habitat","outillage","manuel","burin"]}
- , {"type":[2,11,48,177] , "noms":["habitat","outillage","manuel","ciseaux"]}
- , {"type":[2,11,48,178] , "noms":["habitat","outillage","manuel","lime"]}
- , {"type":[2,11,48,179] , "noms":["habitat","outillage","manuel","marteau"]}
- , {"type":[2,11,48,180] , "noms":["habitat","outillage","manuel","rabot"]}
- , {"type":[2,11,48,181] , "noms":["habitat","outillage","manuel","scie"]}
- , {"type":[2,11,48,181,136] , "noms":["habitat","outillage","manuel","scie","bois"]}
- , {"type":[2,11,48,181,137] , "noms":["habitat","outillage","manuel","scie","métaux"]}
- , {"type":[2,11,48,182] , "noms":["habitat","outillage","manuel","tournevis"]}
- , {"type":[2,11,48,183] , "noms":["habitat","outillage","manuel","truelle"]}
- , {"type":[2,11,49] , "noms":["habitat","outillage","electro"]}
- , {"type":[2,11,49,184] , "noms":["habitat","outillage","electro","ponceuse"]}
- , {"type":[2,11,49,185] , "noms":["habitat","outillage","electro","perceuse"]}
- , {"type":[2,11,49,186] , "noms":["habitat","outillage","electro","scie"]}
- , {"type":[2,11,49,186,138] , "noms":["habitat","outillage","electro","scie","circulaire"]}
- , {"type":[2,11,49,186,139] , "noms":["habitat","outillage","electro","scie","sauteuse"]}
- , {"type":[2,11,49,187] , "noms":["habitat","outillage","electro","visseuse"]}
+ , {"type":[2,10,47] , "noms":["habitat","consommable","papeterie"]}
+ , {"type":[2,10,47] , "noms":["habitat","consommable","papeterie"]}
+ , {"type":[2,10,47] , "noms":["habitat","consommable","papeterie"]}
+ , {"type":[2,10,47] , "noms":["habitat","consommable","papeterie"]}
+ , {"type":[2,10,47] , "noms":["habitat","consommable","papeterie"]}
+ , {"type":[2,10,47] , "noms":["habitat","consommable","papeterie"]}
+ , {"type":[2,10,47] , "noms":["habitat","consommable","papeterie"]}
+ , {"type":[2,10,47] , "noms":["habitat","consommable","papeterie"]}
+ , {"type":[2,10,47] , "noms":["habitat","consommable","papeterie"]}
+ , {"type":[2,10,47] , "noms":["habitat","consommable","papeterie"]}
+ , {"type":[2,10,47] , "noms":["habitat","consommable","papeterie"]}
+ , {"type":[2,10,47] , "noms":["habitat","consommable","papeterie"]}
+ , {"type":[2,10,47] , "noms":["habitat","consommable","papeterie"]}
+ , {"type":[2,10,47] , "noms":["habitat","consommable","papeterie"]}
+ , {"type":[2,10,47] , "noms":["habitat","consommable","papeterie"]}
+ , {"type":[2,10,47] , "noms":["habitat","consommable","papeterie"]}
+ , {"type":[2,10,47] , "noms":["habitat","consommable","papeterie"]}
+ , {"type":[2,10,47] , "noms":["habitat","consommable","papeterie"]}
+ , {"type":[2,10,47] , "noms":["habitat","consommable","papeterie"]}
+ , {"type":[2,10,47] , "noms":["habitat","consommable","papeterie"]}
+ , {"type":[2,10,47] , "noms":["habitat","consommable","papeterie"]}
  , {"type":[3] , "noms":["soins"]}
- , {"type":[3,12] , "noms":["soins","médecin"]}
- , {"type":[3,12,50] , "noms":["soins","médecin","généraliste"]}
- , {"type":[3,12,51] , "noms":["soins","médecin","anesthésie"]}
- , {"type":[3,12,52] , "noms":["soins","médecin","cardiologue"]}
- , {"type":[3,12,53] , "noms":["soins","médecin","chirurgie"]}
- , {"type":[3,12,54] , "noms":["soins","médecin","dentiste"]}
- , {"type":[3,12,55] , "noms":["soins","médecin","dermatologue"]}
- , {"type":[3,12,56] , "noms":["soins","médecin","ophtalmologue"]}
- , {"type":[3,12,57] , "noms":["soins","médecin","radiologue"]}
- , {"type":[3,13] , "noms":["soins","pharmacie"]}
- , {"type":[3,14] , "noms":["soins","paramédical"]}
- , {"type":[3,14,58] , "noms":["soins","paramédical","infirmier"]}
- , {"type":[3,14,59] , "noms":["soins","paramédical","analyses"]}
- , {"type":[3,14,60] , "noms":["soins","paramédical","ambulance"]}
- , {"type":[3,14,61] , "noms":["soins","paramédical","kinésie-thérapie"]}
- , {"type":[3,14,62] , "noms":["soins","paramédical","orthoptiste"]}
- , {"type":[3,15] , "noms":["soins","hôpital"]}
- , {"type":[3,16] , "noms":["soins","assistance"]}
+ , {"type":[3,11] , "noms":["soins","médecin"]}
+ , {"type":[3,11,48] , "noms":["soins","médecin","généraliste"]}
+ , {"type":[3,11,49] , "noms":["soins","médecin","anesthésie"]}
+ , {"type":[3,11,50] , "noms":["soins","médecin","cardiologue"]}
+ , {"type":[3,11,51] , "noms":["soins","médecin","chirurgie"]}
+ , {"type":[3,11,52] , "noms":["soins","médecin","dentiste"]}
+ , {"type":[3,11,53] , "noms":["soins","médecin","dermatologue"]}
+ , {"type":[3,11,54] , "noms":["soins","médecin","ophtalmologue"]}
+ , {"type":[3,11,55] , "noms":["soins","médecin","radiologue"]}
+ , {"type":[3,12] , "noms":["soins","pharmacie"]}
+ , {"type":[3,13] , "noms":["soins","paramédical"]}
+ , {"type":[3,13,56] , "noms":["soins","paramédical","infirmier"]}
+ , {"type":[3,13,57] , "noms":["soins","paramédical","analyses"]}
+ , {"type":[3,13,58] , "noms":["soins","paramédical","ambulance"]}
+ , {"type":[3,13,59] , "noms":["soins","paramédical","kinésie-thérapie"]}
+ , {"type":[3,13,60] , "noms":["soins","paramédical","orthoptiste"]}
+ , {"type":[3,14] , "noms":["soins","hôpital"]}
+ , {"type":[3,15] , "noms":["soins","assistance"]}
  , {"type":[4] , "noms":["solidarité"]}
- , {"type":[4,17] , "noms":["solidarité","assurance"]}
- , {"type":[4,17,63] , "noms":["solidarité","assurance","multi-risque"]}
- , {"type":[4,17,64] , "noms":["solidarité","assurance","auto"]}
- , {"type":[4,17,65] , "noms":["solidarité","assurance","habitation"]}
- , {"type":[4,17,65,188] , "noms":["solidarité","assurance","habitation","propriétaire"]}
- , {"type":[4,17,65,189] , "noms":["solidarité","assurance","habitation","locataire"]}
- , {"type":[4,17,66] , "noms":["solidarité","assurance","réparation"]}
- , {"type":[4,18] , "noms":["solidarité","cotisation"]}
- , {"type":[4,18,67] , "noms":["solidarité","cotisation","sociale"]}
- , {"type":[4,18,67,190] , "noms":["solidarité","cotisation","sociale","URSSAF"]}
- , {"type":[4,18,67,191] , "noms":["solidarité","cotisation","sociale","CSG"]}
- , {"type":[4,18,68] , "noms":["solidarité","cotisation","association"]}
- , {"type":[4,18,69] , "noms":["solidarité","cotisation","syndicale"]}
- , {"type":[4,19] , "noms":["solidarité","impôt"]}
- , {"type":[4,19,70] , "noms":["solidarité","impôt","revenu"]}
- , {"type":[4,19,71] , "noms":["solidarité","impôt","taxe habitation"]}
- , {"type":[4,19,72] , "noms":["solidarité","impôt","taxe foncière"]}
- , {"type":[4,19,73] , "noms":["solidarité","impôt","TVA"]}
- , {"type":[4,20] , "noms":["solidarité","don"]}
+ , {"type":[4,16] , "noms":["solidarité","assurance"]}
+ , {"type":[4,16,61] , "noms":["solidarité","assurance","multi-risque"]}
+ , {"type":[4,16,62] , "noms":["solidarité","assurance","auto"]}
+ , {"type":[4,16,63] , "noms":["solidarité","assurance","habitation"]}
+ , {"type":[4,16,63,176] , "noms":["solidarité","assurance","habitation","propriétaire"]}
+ , {"type":[4,16,63,177] , "noms":["solidarité","assurance","habitation","locataire"]}
+ , {"type":[4,16,64] , "noms":["solidarité","assurance","réparation"]}
+ , {"type":[4,17] , "noms":["solidarité","cotisation"]}
+ , {"type":[4,17,65] , "noms":["solidarité","cotisation","sociale"]}
+ , {"type":[4,17,65,178] , "noms":["solidarité","cotisation","sociale","URSSAF"]}
+ , {"type":[4,17,65,179] , "noms":["solidarité","cotisation","sociale","CSG"]}
+ , {"type":[4,17,66] , "noms":["solidarité","cotisation","association"]}
+ , {"type":[4,17,67] , "noms":["solidarité","cotisation","syndicale"]}
+ , {"type":[4,18] , "noms":["solidarité","impôt"]}
+ , {"type":[4,18,68] , "noms":["solidarité","impôt","revenu"]}
+ , {"type":[4,18,69] , "noms":["solidarité","impôt","taxe habitation"]}
+ , {"type":[4,18,70] , "noms":["solidarité","impôt","taxe foncière"]}
+ , {"type":[4,18,71] , "noms":["solidarité","impôt","TVA"]}
+ , {"type":[4,19] , "noms":["solidarité","don"]}
  , {"type":[5] , "noms":["transport"]}
- , {"type":[5,21] , "noms":["transport","véhicule"]}
- , {"type":[5,21,74] , "noms":["transport","véhicule","achat"]}
- , {"type":[5,21,74,192] , "noms":["transport","véhicule","achat","aérien"]}
- , {"type":[5,21,74,192,140] , "noms":["transport","véhicule","achat","aérien","avion"]}
- , {"type":[5,21,74,192,141] , "noms":["transport","véhicule","achat","aérien","ULM"]}
- , {"type":[5,21,74,192,142] , "noms":["transport","véhicule","achat","aérien","parapente"]}
- , {"type":[5,21,74,192,143] , "noms":["transport","véhicule","achat","aérien","hélicoptère"]}
- , {"type":[5,21,74,192,144] , "noms":["transport","véhicule","achat","aérien","montgolfière"]}
- , {"type":[5,21,74,193] , "noms":["transport","véhicule","achat","aquatique"]}
- , {"type":[5,21,74,193,145] , "noms":["transport","véhicule","achat","aquatique","barque"]}
- , {"type":[5,21,74,193,146] , "noms":["transport","véhicule","achat","aquatique","bateau"]}
- , {"type":[5,21,74,193,147] , "noms":["transport","véhicule","achat","aquatique","voilier"]}
- , {"type":[5,21,74,194] , "noms":["transport","véhicule","achat","terrestre"]}
- , {"type":[5,21,74,194,148] , "noms":["transport","véhicule","achat","terrestre","automobile"]}
- , {"type":[5,21,74,194,149] , "noms":["transport","véhicule","achat","terrestre","moto"]}
- , {"type":[5,21,74,194,150] , "noms":["transport","véhicule","achat","terrestre","scooter"]}
- , {"type":[5,21,74,194,151] , "noms":["transport","véhicule","achat","terrestre","vélo"]}
- , {"type":[5,21,74,194,152] , "noms":["transport","véhicule","achat","terrestre","trotinette"]}
- , {"type":[5,21,74,194,153] , "noms":["transport","véhicule","achat","terrestre","quad"]}
- , {"type":[5,21,75] , "noms":["transport","véhicule","entretien"]}
- , {"type":[5,21,75,195] , "noms":["transport","véhicule","entretien","nettoyage"]}
- , {"type":[5,21,75,196] , "noms":["transport","véhicule","entretien","révision"]}
- , {"type":[5,21,75,197] , "noms":["transport","véhicule","entretien","réparation"]}
- , {"type":[5,21,75,198] , "noms":["transport","véhicule","entretien","pneus"]}
- , {"type":[5,21,76] , "noms":["transport","véhicule","location"]}
- , {"type":[5,21,77] , "noms":["transport","véhicule","frais"]}
- , {"type":[5,21,77,199] , "noms":["transport","véhicule","frais","péage"]}
- , {"type":[5,21,77,200] , "noms":["transport","véhicule","frais","remorquage"]}
- , {"type":[5,21,77,201] , "noms":["transport","véhicule","frais","amendes"]}
- , {"type":[5,22] , "noms":["transport","en commun"]}
- , {"type":[5,22,78] , "noms":["transport","en commun","abonnement"]}
- , {"type":[5,22,79] , "noms":["transport","en commun","ticket"]}
- , {"type":[5,22,80] , "noms":["transport","en commun","frais de port"]}
+ , {"type":[5,20] , "noms":["transport","véhicule"]}
+ , {"type":[5,20,72] , "noms":["transport","véhicule","achat"]}
+ , {"type":[5,20,72,180] , "noms":["transport","véhicule","achat","aérien"]}
+ , {"type":[5,20,72,180,136] , "noms":["transport","véhicule","achat","aérien","avion"]}
+ , {"type":[5,20,72,180,137] , "noms":["transport","véhicule","achat","aérien","ULM"]}
+ , {"type":[5,20,72,180,138] , "noms":["transport","véhicule","achat","aérien","parapente"]}
+ , {"type":[5,20,72,180,139] , "noms":["transport","véhicule","achat","aérien","hélicoptère"]}
+ , {"type":[5,20,72,180,140] , "noms":["transport","véhicule","achat","aérien","montgolfière"]}
+ , {"type":[5,20,72,181] , "noms":["transport","véhicule","achat","aquatique"]}
+ , {"type":[5,20,72,181,141] , "noms":["transport","véhicule","achat","aquatique","barque"]}
+ , {"type":[5,20,72,181,142] , "noms":["transport","véhicule","achat","aquatique","bateau"]}
+ , {"type":[5,20,72,181,143] , "noms":["transport","véhicule","achat","aquatique","voilier"]}
+ , {"type":[5,20,72,182] , "noms":["transport","véhicule","achat","terrestre"]}
+ , {"type":[5,20,72,182,144] , "noms":["transport","véhicule","achat","terrestre","automobile"]}
+ , {"type":[5,20,72,182,145] , "noms":["transport","véhicule","achat","terrestre","moto"]}
+ , {"type":[5,20,72,182,146] , "noms":["transport","véhicule","achat","terrestre","scooter"]}
+ , {"type":[5,20,72,182,147] , "noms":["transport","véhicule","achat","terrestre","vélo"]}
+ , {"type":[5,20,72,182,148] , "noms":["transport","véhicule","achat","terrestre","trotinette"]}
+ , {"type":[5,20,72,182,149] , "noms":["transport","véhicule","achat","terrestre","quad"]}
+ , {"type":[5,20,73] , "noms":["transport","véhicule","entretien"]}
+ , {"type":[5,20,73,183] , "noms":["transport","véhicule","entretien","nettoyage"]}
+ , {"type":[5,20,73,184] , "noms":["transport","véhicule","entretien","révision"]}
+ , {"type":[5,20,73,185] , "noms":["transport","véhicule","entretien","réparation"]}
+ , {"type":[5,20,73,186] , "noms":["transport","véhicule","entretien","pneus"]}
+ , {"type":[5,20,74] , "noms":["transport","véhicule","location"]}
+ , {"type":[5,20,75] , "noms":["transport","véhicule","frais"]}
+ , {"type":[5,20,75,187] , "noms":["transport","véhicule","frais","péage"]}
+ , {"type":[5,20,75,188] , "noms":["transport","véhicule","frais","remorquage"]}
+ , {"type":[5,20,75,189] , "noms":["transport","véhicule","frais","amendes"]}
+ , {"type":[5,21] , "noms":["transport","en commun"]}
+ , {"type":[5,21,76] , "noms":["transport","en commun","abonnement"]}
+ , {"type":[5,21,77] , "noms":["transport","en commun","ticket"]}
+ , {"type":[5,21,78] , "noms":["transport","en commun","frais de port"]}
  , {"type":[6] , "noms":["connaissance"]}
- , {"type":[6,23] , "noms":["connaissance","loisir"]}
- , {"type":[6,23,81] , "noms":["connaissance","loisir","streaming"]}
- , {"type":[6,23,81,202] , "noms":["connaissance","loisir","streaming","abonnement"]}
- , {"type":[6,23,81,203] , "noms":["connaissance","loisir","streaming","location"]}
- , {"type":[6,23,81,204] , "noms":["connaissance","loisir","streaming","équipement"]}
- , {"type":[6,23,82] , "noms":["connaissance","loisir","copie"]}
- , {"type":[6,23,82,205] , "noms":["connaissance","loisir","copie","livre"]}
- , {"type":[6,23,82,206] , "noms":["connaissance","loisir","copie","musique"]}
- , {"type":[6,23,82,207] , "noms":["connaissance","loisir","copie","vidéo"]}
- , {"type":[6,23,82,208] , "noms":["connaissance","loisir","copie","équipement"]}
- , {"type":[6,23,83] , "noms":["connaissance","loisir","spectacle"]}
- , {"type":[6,23,83,209] , "noms":["connaissance","loisir","spectacle","cinéma"]}
- , {"type":[6,23,83,210] , "noms":["connaissance","loisir","spectacle","théâtre"]}
- , {"type":[6,23,83,211] , "noms":["connaissance","loisir","spectacle","concert"]}
- , {"type":[6,23,84] , "noms":["connaissance","loisir","tourisme"]}
- , {"type":[6,23,84,212] , "noms":["connaissance","loisir","tourisme","voyage"]}
- , {"type":[6,23,84,213] , "noms":["connaissance","loisir","tourisme","musée"]}
- , {"type":[6,23,84,214] , "noms":["connaissance","loisir","tourisme","équipement"]}
- , {"type":[6,23,85] , "noms":["connaissance","loisir","attraction"]}
- , {"type":[6,23,85,215] , "noms":["connaissance","loisir","attraction","parc"]}
- , {"type":[6,23,85,216] , "noms":["connaissance","loisir","attraction","forain"]}
- , {"type":[6,23,85,217] , "noms":["connaissance","loisir","attraction","équipement"]}
- , {"type":[6,23,86] , "noms":["connaissance","loisir","sport"]}
- , {"type":[6,23,86,218] , "noms":["connaissance","loisir","sport","abonnement"]}
- , {"type":[6,23,86,219] , "noms":["connaissance","loisir","sport","équipement"]}
- , {"type":[6,24] , "noms":["connaissance","formation"]}
- , {"type":[6,25] , "noms":["connaissance","data"]}
- , {"type":[6,25,87] , "noms":["connaissance","data","identity"]}
- , {"type":[6,25,88] , "noms":["connaissance","data","justificatif"]}
- , {"type":[6,25,88,220] , "noms":["connaissance","data","justificatif","contrat"]}
- , {"type":[6,25,88,221] , "noms":["connaissance","data","justificatif","facture"]}
- , {"type":[7] , "noms":["revenu"]}
- , {"type":[7,26] , "noms":["revenu","salaire"]}
- , {"type":[7,27] , "noms":["revenu","pension"]}
- , {"type":[7,28] , "noms":["revenu","remboursement"]}
- , {"type":[7,29] , "noms":["revenu","intérêts"]}
- , {"type":[7,30] , "noms":["revenu","dividende"]}
- , {"type":[8] , "noms":["emprunt"]}
- , {"type":[8,31] , "noms":["emprunt","capital "]}
- , {"type":[8,32] , "noms":["emprunt","intérêts "]}
- , {"type":[9] , "noms":["production"]}
- , {"type":[10] , "noms":["vente"]}
- , {"type":[10,33] , "noms":["vente","marketing"]}
- , {"type":[10,33,89] , "noms":["vente","marketing","publicité"]}
+ , {"type":[6,22] , "noms":["connaissance","loisir"]}
+ , {"type":[6,22,79] , "noms":["connaissance","loisir","streaming"]}
+ , {"type":[6,22,79,190] , "noms":["connaissance","loisir","streaming","abonnement"]}
+ , {"type":[6,22,79,191] , "noms":["connaissance","loisir","streaming","location"]}
+ , {"type":[6,22,79,192] , "noms":["connaissance","loisir","streaming","équipement"]}
+ , {"type":[6,22,80] , "noms":["connaissance","loisir","librairie"]}
+ , {"type":[6,22,80,193] , "noms":["connaissance","loisir","librairie","livre"]}
+ , {"type":[6,22,80,194] , "noms":["connaissance","loisir","librairie","équipement"]}
+ , {"type":[6,22,81] , "noms":["connaissance","loisir","musique"]}
+ , {"type":[6,22,81,195] , "noms":["connaissance","loisir","musique","disque"]}
+ , {"type":[6,22,81,196] , "noms":["connaissance","loisir","musique","instrument"]}
+ , {"type":[6,22,82] , "noms":["connaissance","loisir","photo"]}
+ , {"type":[6,22,83] , "noms":["connaissance","loisir","vidéo"]}
+ , {"type":[6,22,84] , "noms":["connaissance","loisir","peinture"]}
+ , {"type":[6,22,85] , "noms":["connaissance","loisir","spectacle"]}
+ , {"type":[6,22,85,197] , "noms":["connaissance","loisir","spectacle","cinéma"]}
+ , {"type":[6,22,85,198] , "noms":["connaissance","loisir","spectacle","théâtre"]}
+ , {"type":[6,22,85,199] , "noms":["connaissance","loisir","spectacle","concert"]}
+ , {"type":[6,22,86] , "noms":["connaissance","loisir","tourisme"]}
+ , {"type":[6,22,86,200] , "noms":["connaissance","loisir","tourisme","voyage"]}
+ , {"type":[6,22,86,201] , "noms":["connaissance","loisir","tourisme","musée"]}
+ , {"type":[6,22,86,202] , "noms":["connaissance","loisir","tourisme","équipement"]}
+ , {"type":[6,22,87] , "noms":["connaissance","loisir","attraction"]}
+ , {"type":[6,22,87,203] , "noms":["connaissance","loisir","attraction","parc"]}
+ , {"type":[6,22,87,204] , "noms":["connaissance","loisir","attraction","forain"]}
+ , {"type":[6,22,87,205] , "noms":["connaissance","loisir","attraction","équipement"]}
+ , {"type":[6,22,88] , "noms":["connaissance","loisir","sport"]}
+ , {"type":[6,22,88,206] , "noms":["connaissance","loisir","sport","abonnement"]}
+ , {"type":[6,22,88,207] , "noms":["connaissance","loisir","sport","équipement"]}
+ , {"type":[6,23] , "noms":["connaissance","formation"]}
+ , {"type":[6,24] , "noms":["connaissance","data"]}
+ , {"type":[6,24,89] , "noms":["connaissance","data","identity"]}
+ , {"type":[6,24,90] , "noms":["connaissance","data","justificatif"]}
+ , {"type":[6,24,90,208] , "noms":["connaissance","data","justificatif","contrat"]}
+ , {"type":[6,24,90,209] , "noms":["connaissance","data","justificatif","facture"]}
+ , {"type":[7] , "noms":["finance"]}
+ , {"type":[7,25] , "noms":["finance","revenu"]}
+ , {"type":[7,25,91] , "noms":["finance","revenu","salaire"]}
+ , {"type":[7,25,92] , "noms":["finance","revenu","pension"]}
+ , {"type":[7,25,93] , "noms":["finance","revenu","remboursement"]}
+ , {"type":[7,25,94] , "noms":["finance","revenu","intérêts"]}
+ , {"type":[7,25,95] , "noms":["finance","revenu","dividende"]}
+ , {"type":[7,26] , "noms":["finance","emprunt"]}
+ , {"type":[7,26,96] , "noms":["finance","emprunt","capital "]}
+ , {"type":[7,26,97] , "noms":["finance","emprunt","intérêts "]}
+ , {"type":[8] , "noms":["production"]}
+ , {"type":[8,27] , "noms":["production","outillage"]}
+ , {"type":[8,27,98] , "noms":["production","outillage","atelier"]}
+ , {"type":[8,27,98,210] , "noms":["production","outillage","atelier","manuel"]}
+ , {"type":[8,27,98,210,150] , "noms":["production","outillage","atelier","manuel","burin"]}
+ , {"type":[8,27,98,210,151] , "noms":["production","outillage","atelier","manuel","ciseau"]}
+ , {"type":[8,27,98,210,151,368] , "noms":["production","outillage","atelier","manuel","ciseau","à bois"]}
+ , {"type":[8,27,98,210,151,369] , "noms":["production","outillage","atelier","manuel","ciseau","à métal"]}
+ , {"type":[8,27,98,210,152] , "noms":["production","outillage","atelier","manuel","clé"]}
+ , {"type":[8,27,98,210,152,370] , "noms":["production","outillage","atelier","manuel","clé","plate"],"car":"ou clé à fourche",}
+ , {"type":[8,27,98,210,152,371] , "noms":["production","outillage","atelier","manuel","clé","à oeil"]}
+ , {"type":[8,27,98,210,152,372] , "noms":["production","outillage","atelier","manuel","clé","mixte"],"car":"fourche  + oeil",}
+ , {"type":[8,27,98,210,152,373] , "noms":["production","outillage","atelier","manuel","clé","à pipe"]}
+ , {"type":[8,27,98,210,152,374] , "noms":["production","outillage","atelier","manuel","clé","à tube"]}
+ , {"type":[8,27,98,210,152,375] , "noms":["production","outillage","atelier","manuel","clé","mâle"]}
+ , {"type":[8,27,98,210,152,376] , "noms":["production","outillage","atelier","manuel","clé","à cliquet"]}
+ , {"type":[8,27,98,210,152,377] , "noms":["production","outillage","atelier","manuel","clé","en croix"]}
+ , {"type":[8,27,98,210,152,378] , "noms":["production","outillage","atelier","manuel","clé","à molette"]}
+ , {"type":[8,27,98,210,152,379] , "noms":["production","outillage","atelier","manuel","clé","anglaise"]}
+ , {"type":[8,27,98,210,152,380] , "noms":["production","outillage","atelier","manuel","clé","à griffe"]}
+ , {"type":[8,27,98,210,152,381] , "noms":["production","outillage","atelier","manuel","clé","à sangle"]}
+ , {"type":[8,27,98,210,152,382] , "noms":["production","outillage","atelier","manuel","clé","lavabo"]}
+ , {"type":[8,27,98,210,153] , "noms":["production","outillage","atelier","manuel","lime"]}
+ , {"type":[8,27,98,210,154] , "noms":["production","outillage","atelier","manuel","marteau"]}
+ , {"type":[8,27,98,210,155] , "noms":["production","outillage","atelier","manuel","rabot"]}
+ , {"type":[8,27,98,210,156] , "noms":["production","outillage","atelier","manuel","scie"]}
+ , {"type":[8,27,98,210,156,383] , "noms":["production","outillage","atelier","manuel","scie","bois"]}
+ , {"type":[8,27,98,210,156,384] , "noms":["production","outillage","atelier","manuel","scie","métaux"]}
+ , {"type":[8,27,98,210,157] , "noms":["production","outillage","atelier","manuel","tournevis"]}
+ , {"type":[8,27,98,210,157,385] , "noms":["production","outillage","atelier","manuel","tournevis","plat"]}
+ , {"type":[8,27,98,210,157,386] , "noms":["production","outillage","atelier","manuel","tournevis","cruciforme"]}
+ , {"type":[8,27,98,210,157,387] , "noms":["production","outillage","atelier","manuel","tournevis","torx"]}
+ , {"type":[8,27,98,210,158] , "noms":["production","outillage","atelier","manuel","truelle"]}
+ , {"type":[8,27,98,211] , "noms":["production","outillage","atelier","électrique"]}
+ , {"type":[8,27,98,211,159] , "noms":["production","outillage","atelier","électrique","défonceuse"]}
+ , {"type":[8,27,98,211,160] , "noms":["production","outillage","atelier","électrique","ponceuse"]}
+ , {"type":[8,27,98,211,161] , "noms":["production","outillage","atelier","électrique","perceuse"]}
+ , {"type":[8,27,98,211,162] , "noms":["production","outillage","atelier","électrique","rabot"]}
+ , {"type":[8,27,98,211,163] , "noms":["production","outillage","atelier","électrique","scie"]}
+ , {"type":[8,27,98,211,163,388] , "noms":["production","outillage","atelier","électrique","scie","circulaire"]}
+ , {"type":[8,27,98,211,163,389] , "noms":["production","outillage","atelier","électrique","scie","sauteuse"]}
+ , {"type":[8,27,98,211,164] , "noms":["production","outillage","atelier","électrique","visseuse"]}
+ , {"type":[8,27,98,212] , "noms":["production","outillage","atelier","pneumatique"]}
+ , {"type":[8,27,98,212,165] , "noms":["production","outillage","atelier","pneumatique","marteau-piqueur"]}
+ , {"type":[8,27,99] , "noms":["production","outillage","engins"]}
+ , {"type":[8,27,99,213] , "noms":["production","outillage","engins","terrassement"]}
+ , {"type":[8,28] , "noms":["production","quincaillerie"]}
+ , {"type":[8,28,100] , "noms":["production","quincaillerie","fixation"]}
+ , {"type":[8,28,100,214] , "noms":["production","quincaillerie","fixation","clou"]}
+ , {"type":[8,28,100,215] , "noms":["production","quincaillerie","fixation","vis"]}
+ , {"type":[8,28,100,215,166] , "noms":["production","quincaillerie","fixation","vis","plat"]}
+ , {"type":[8,28,100,215,167] , "noms":["production","quincaillerie","fixation","vis","cruciforme"]}
+ , {"type":[8,28,100,215,168] , "noms":["production","quincaillerie","fixation","vis","torx"]}
+ , {"type":[8,28,100,216] , "noms":["production","quincaillerie","fixation","boulon"]}
+ , {"type":[8,28,100,217] , "noms":["production","quincaillerie","fixation","écrou"]}
+ , {"type":[8,28,100,218] , "noms":["production","quincaillerie","fixation","cheville"]}
+ , {"type":[8,28,100,219] , "noms":["production","quincaillerie","fixation","équerre"]}
+ , {"type":[8,29] , "noms":["production","électricité"]}
+ , {"type":[8,29,220] , "noms":["production","électricité","prise"]}
+ , {"type":[8,29,221] , "noms":["production","électricité","interrupteur"]}
+ , {"type":[8,29,222] , "noms":["production","électricité","disjoncteur"]}
+ , {"type":[8,29,223] , "noms":["production","électricité","câble"]}
+ , {"type":[8,30,223] , "noms":["production","plomberie","câble"]}
+ , {"type":[8,30,101] , "noms":["production","plomberie","acier"]}
+ , {"type":[8,30,101,224] , "noms":["production","plomberie","acier","tuyau"]}
+ , {"type":[8,30,101,225] , "noms":["production","plomberie","acier","raccord"]}
+ , {"type":[8,30,102] , "noms":["production","plomberie","cuivre"]}
+ , {"type":[8,30,102,226] , "noms":["production","plomberie","cuivre","tuyau"]}
+ , {"type":[8,30,102,227] , "noms":["production","plomberie","cuivre","raccord"]}
+ , {"type":[8,30,103] , "noms":["production","plomberie","plastique"]}
+ , {"type":[8,30,103,228] , "noms":["production","plomberie","plastique","tuyau"]}
+ , {"type":[8,30,103,229] , "noms":["production","plomberie","plastique","raccord"]}
+ , {"type":[8,31] , "noms":["production","jardinage"]}
+ , {"type":[8,31,104] , "noms":["production","jardinage","graines"]}
+ , {"type":[8,31,105] , "noms":["production","jardinage","plantes"]}
+ , {"type":[8,31,106] , "noms":["production","jardinage","produits"]}
+ , {"type":[8,31,106,230] , "noms":["production","jardinage","produits","terreau"]}
+ , {"type":[9] , "noms":["vente"]}
+ , {"type":[9,32] , "noms":["vente","marketing"]}
 ]
 }
 """

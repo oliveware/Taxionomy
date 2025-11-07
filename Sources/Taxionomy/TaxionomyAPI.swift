@@ -18,6 +18,8 @@ public struct Manager : View {
                 .tabItem { Text("liste") }.tag(1)
             TaxionPicker($taxion, $taxionomy, {})
                 .tabItem { Text("picker") }.tag(2)
+            TaxionomyEditor($taxionomy)
+                .tabItem { Text("éditer") }.tag(3)
         }.padding()
     }
 }

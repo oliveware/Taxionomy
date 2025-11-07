@@ -8,7 +8,7 @@ import Foundation
 
 
 public struct Taxionomy: Codable {
-    public static let besoins = Taxionomy(taxionomie)
+    public static let besoins = Taxionomy(taxionomie2)
     
     var levels: [Taxions]
     

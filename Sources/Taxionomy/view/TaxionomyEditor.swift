@@ -58,7 +58,7 @@ public struct TaxionomyEditor : View {
 }
 
 struct TaxionomyPreditor : View {
-    @State var taxionomy = Taxionomy(taxionomie)
+    @State var taxionomy = Taxionomy(taxionomie2)
     
     var body : some View {
         TaxionomyEditor($taxionomy).frame(width:600, height:500)
