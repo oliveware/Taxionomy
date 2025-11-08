@@ -19,26 +19,40 @@ public struct TaxionCreator : View {
     
     public var body : some View {
         VStack {
-            Text(taxion.complet())
+            Text("création d'un élément dans \(taxion.complet())")
+                .font(.title)
+                .padding()
             Form {
-                TextField("nom", text:$nom)
+                TextField("nom", text:$nom).font(.title2)
 
                 TextField("caractéristiques", text:Binding<String> (
                     get: { taxion.car ?? "" },
-                    set: { taxion.car = $0 })
+                    set: { taxion.car = $0 == "" ? nil : $0 })
                 )
                 
                 TextField("conseils", text:Binding<String> (
                     get: { taxion.use ?? "" },
-                    set: { taxion.use = $0 })
+                    set: { taxion.use = $0 == "" ? nil : $0 })
+                )
+                TextField("image", text:Binding<String> (
+                    get: { taxion.imagurl ?? "" },
+                    set: { taxion.imagurl = $0 == "" ? nil : $0 })
+                )
+                .padding(.bottom,20)
+                TextField("détail", text:Binding<String> (
+                    get: { taxion.detailurl ?? "" },
+                    set: { taxion.detailurl = $0 == "" ? nil : $0 })
+                )
+                TextField("sous-catégorie", text:Binding<String> (
+                    get: { taxion.sub ?? "" },
+                    set: { taxion.sub = $0 == "" ? nil : $0 })
                 )
             }
-            if nom.count > 2 {
-                Button("valider", action:{
-                    taxion.noms.append(nom)
-                    done()
-                })
-            }
+            Button("valider", action:{
+                taxion.changenom(nom)
+                done()
+            }).disabled(nom.count < 3)
+                .padding()
         }.padding()
         
     }

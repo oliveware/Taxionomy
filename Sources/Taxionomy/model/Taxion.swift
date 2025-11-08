@@ -30,9 +30,9 @@ public struct Taxion : Codable, Identifiable {
     
     var car: String?
     var use: String?
-    var detail: String? // dans une taxionomie spécialisée
+    var sub: String? // dans une taxionomie spécialisée
     var imagurl: String?
-    var contenturl: String?
+    var detailurl: String?
     
     var parent: Taxion {
         parent(type.count-1)
