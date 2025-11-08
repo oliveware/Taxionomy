@@ -14,7 +14,6 @@ public struct TaxionomyEditor : View {
     
     enum Step {
         case pick
-        case action
         case create
         case maj
         case delete
@@ -27,22 +26,20 @@ public struct TaxionomyEditor : View {
     public var body : some View {
         
         VStack {
-            if action != .pick && taxion.dim > 0 {
-                HStack {
-                    Text(taxion.root)
-                }
-            }
+            if taxion.dim > 0 { Text(taxion.root) }
+            Spacer()
             switch action {
             case .pick :
-                TaxionPicker($taxion, $taxionomy, {action = .action})
-            case .action:
-                TaxionShow(taxion)
+                 //, {action = .action})
                 HStack {
-                    if taxion.dim >= 0 {
-                        Button("choisir un autre type", action: { action = .pick })
+                    TaxionPicker($taxion, $taxionomy)
+                    Spacer()
+                    VStack {
                         Spacer()
-                        Button("supprimer", action: { action = .delete })
-                        Button("modifier", action: { action = .maj })
+                        if taxion.dim > 0 {
+                            Button("supprimer", action: { action = .delete })
+                            Button("modifier", action: { action = .maj })
+                        }
                         if taxion.dim < 6 {
                             Button("ajouter", action: { action = .create })
                         }
@@ -54,9 +51,14 @@ public struct TaxionomyEditor : View {
             case .maj :
                 TaxionEditor($taxion, maj)
             case .delete :
-                Button("confirmer la suppression de \(taxion.nom)", action: { delete() })
+                Text("confirmer la suppression de \(taxion.nom)").font(.title)
+                    .padding(20)
+                HStack {
+                    Button("annuler", action: { action = .pick })
+                    Button("confirmer", action: { delete() })
+                }
             }
-           
+            Spacer()
         }.padding()
     }
     

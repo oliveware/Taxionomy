@@ -32,7 +32,7 @@ public struct TaxionView : View {
     public var body : some View {
         VStack( alignment:.leading) {
             if picker {
-                TaxionPicker($taxion, $taxionomy, {picker = false})
+                TaxionPicker($taxion, $taxionomy) //, {picker = false})
             } else {
                 HStack {
                     if taxion.dim == 0 {

@@ -18,7 +18,7 @@ public struct TaxionomyAPI : View {
         TabView(selection: $selected) {
             TaxionomyShow(taxionomy: taxionomy)
                 .tabItem { Text("liste") }.tag(1)
-            TaxionPicker($taxion, $taxionomy, {})
+            TaxionPicker($taxion, $taxionomy)
                 .tabItem { Text("picker") }.tag(2)
             TaxionomyEditor($taxionomy)
                 .tabItem { Text("éditer") }.tag(3)
@@ -34,5 +34,5 @@ struct TaxionomyAPIpreview: View {
 }
 
 #Preview {
-    TaxionomyAPIpreview()
+    TaxionomyAPIpreview().frame(width:800)
 }

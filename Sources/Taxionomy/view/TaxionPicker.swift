@@ -11,14 +11,14 @@ public struct TaxionPicker : View {
     @Binding var taxionomy : Taxionomy
     @Binding var taxion: Taxion
     @State var choix:[Taxion]
-    var done: () -> Void
+   // var done: () -> Void
     
     @State var pick = false
     
-    public init(_ taxion:Binding<Taxion>, _ taxionomie:Binding<Taxionomy>, _ done: @escaping () -> Void) {
+    public init(_ taxion:Binding<Taxion>, _ taxionomie:Binding<Taxionomy>) {//}, _ done: @escaping () -> Void) {
         _taxion = taxion
         _taxionomy = taxionomie
-        self.done = done
+       // self.done = done
         let selected = taxion.wrappedValue
         choix = selected.dim == 0 ? taxionomie.wrappedValue.zero :
         taxionomie.wrappedValue.levels[selected.dim - 1].children(selected)
@@ -100,23 +100,7 @@ public struct TaxionPicker : View {
                 
                 Spacer()
                 TaxionShow(taxion)
-                if taxion.dim > 0 {
-                    Button(action:{
-                        pick = false
-                        done()
-                    })
-                    {Image(systemName: "checkmark")}
-                }
                 Spacer()
-        /*    } else {
-                if taxion.dim > 0 {
-                    Text(taxion.complet())
-                } else {
-                    Text("choisir un type")
-                }
-                Button(action:{pick = true})
-                {Image(systemName: "pencil")}
-            }*/
         }.frame(width:600, height:300, alignment:.leading)
             .padding()
     }
@@ -127,7 +111,7 @@ struct TaxionPrepicker : View {
     @State var taxion = Taxion()
     
     var body : some View {
-        TaxionPicker($taxion, $taxionomy, {})
+        TaxionPicker($taxion, $taxionomy)
     }
 }
 

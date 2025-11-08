@@ -33,7 +33,7 @@ public struct TaxionCreator : View {
                     set: { taxion.use = $0 })
                 )
             }
-            if nom.count > 5 {
+            if nom.count > 2 {
                 Button("valider", action:{
                     taxion.noms.append(nom)
                     done()

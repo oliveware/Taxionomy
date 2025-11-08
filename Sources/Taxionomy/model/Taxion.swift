@@ -81,8 +81,8 @@ public struct Taxion : Codable, Identifiable {
     }
     var root: String {
         var string = ""
-        if dim > 2 {
-            for n in 0..<dim-2 {
+        if dim > 0 {
+            for n in 0..<dim-1 {
                 string = string + " " + noms[n]
             }
         }
