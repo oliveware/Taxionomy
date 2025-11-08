@@ -42,7 +42,7 @@ public struct TaxionomyEditor : View {
                             }
                             Button("modifier", action: { action = .maj })
                         }
-                        if taxion.dim < 6 {
+                        if taxion.dim < taxionomy.dim {
                             Button("ajouter", action: {
                                 taxion.clear()
                                 action = .create

@@ -58,22 +58,12 @@ public struct Taxion : Codable, Identifiable {
         self.noms = noms
     }
     //preview
-    init(_ type:[Int]) {
-        let tid = TID(type)
-        let level = Taxionomy.besoins.levels[type.count - 1]
-        self = level[tid.id]
+    init(_ type:[Int], _ taxionomy:Taxionomy = Taxionomy.besoins) {
+       self = taxionomy.find(TID(type))
     }
-   /* public init(_ tid:TID) {
-        let col = Taxions.cols[tid.tab.count - 1]
-        self = col[tid.id]
-    }*/
+
     mutating func clear() {
         self = Taxion(type,noms)
-        /*car = nil
-        use = nil
-        detail = nil
-        imagurl = nil
-        contenturl = nil*/
     }
     mutating func changenom(_ string:String) {
         if dim > 0 {

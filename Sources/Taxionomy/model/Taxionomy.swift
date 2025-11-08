@@ -9,8 +9,12 @@ import Foundation
 
 public struct Taxionomy: Codable {
     public static let besoins = Taxionomy(taxionomie2)
+    public static func besoin(_ tid:TID) -> Taxion {
+         besoins.find(tid)
+    }
     
     var levels: [Taxions]
+    var dim : Int { levels.count }
     
     public init(_ json:String) {
         let jsonData = json.data(using: .utf8)!
@@ -28,6 +32,11 @@ public struct Taxionomy: Codable {
         for taxion in itemset {
             levels[taxion.dim-1].items.append(taxion)
         }
+    }
+    
+    public func find(_ tid:TID) -> Taxion {
+        let level = levels[tid.tab.count - 1]
+        return level[tid.id]
     }
     
     var zero:   [Taxion] { levels[0].items }
