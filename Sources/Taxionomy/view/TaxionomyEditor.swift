@@ -43,7 +43,10 @@ public struct TaxionomyEditor : View {
                             Button("modifier", action: { action = .maj })
                         }
                         if taxion.dim < 6 {
-                            Button("ajouter", action: { action = .create })
+                            Button("ajouter", action: {
+                                taxion.clear()
+                                action = .create
+                            })
                         }
                         Spacer()
                     }
@@ -88,7 +91,7 @@ struct TaxionomyPreditor : View {
     @State var taxionomy = Taxionomy(taxionomie2)
     
     var body : some View {
-        TaxionomyEditor($taxionomy).frame(width:600, height:500)
+        TaxionomyEditor($taxionomy).frame(width:800, height:500)
     }
 }
 

@@ -67,6 +67,14 @@ public struct Taxion : Codable, Identifiable {
         let col = Taxions.cols[tid.tab.count - 1]
         self = col[tid.id]
     }*/
+    mutating func clear() {
+        self = Taxion(type,noms)
+        /*car = nil
+        use = nil
+        detail = nil
+        imagurl = nil
+        contenturl = nil*/
+    }
     mutating func changenom(_ string:String) {
         if dim > 0 {
             noms[dim-1] = string
