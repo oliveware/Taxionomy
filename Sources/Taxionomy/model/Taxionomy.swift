@@ -43,6 +43,15 @@ public struct Taxionomy: Codable {
     mutating func delete(_ taxion: Taxion) {
         levels[taxion.dim-1].delete(taxion)
     }
+    
+    func children(_ parent:Taxion) -> [Taxion] {
+        var selection: [Taxion] = []
+        let dim = parent.dim
+        if levels.count > dim {
+            selection = levels[dim].children(parent)
+        }
+        return selection
+    }
 }
 
 

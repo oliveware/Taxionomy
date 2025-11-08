@@ -37,7 +37,9 @@ public struct TaxionomyEditor : View {
                     VStack {
                         Spacer()
                         if taxion.dim > 0 {
-                            Button("supprimer", action: { action = .delete })
+                            if taxionomy.children(taxion).isEmpty {
+                                Button("supprimer", action: { action = .delete })
+                            }
                             Button("modifier", action: { action = .maj })
                         }
                         if taxion.dim < 6 {

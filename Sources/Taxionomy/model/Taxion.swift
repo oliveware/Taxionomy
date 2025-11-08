@@ -57,7 +57,8 @@ public struct Taxion : Codable, Identifiable {
         type = tab
         self.noms = noms
     }
-   public init(_ type:[Int]) {
+    //preview
+    init(_ type:[Int]) {
         let tid = TID(type)
         let level = Taxionomy.besoins.levels[type.count - 1]
         self = level[tid.id]

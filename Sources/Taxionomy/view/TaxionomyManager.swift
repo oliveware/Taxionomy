@@ -19,7 +19,7 @@ public struct TaxionomyManager : View {
     @State var taxion = Taxion()
     
     public var body: some View {
-        HSplitView {
+        VSplitView {
             TaxionomyEditor($taxionomy)
             TaxionomyShow(taxionomy: taxionomy)
         }.padding()
@@ -34,5 +34,5 @@ struct TaxiomanagerPreview: View {
 }
 
 #Preview {
-    TaxiomanagerPreview().frame(width:1200)
+    TaxiomanagerPreview().frame(width:800, height:600)
 }
