@@ -37,7 +37,7 @@ public struct TaxionEditor : View {
             Button("valider", action:{
                 taxion.changenom(nom)
                 done()
-            }).disabled(nom.count > 2)
+            }).disabled(nom.count < 3)
         }.padding()
         
     }
@@ -49,7 +49,6 @@ struct TaxionPreditor : View {
     
     var body : some View {
         TaxionEditor($taxion, done)
-        TaxionShow(taxion)
     }
 }
 
