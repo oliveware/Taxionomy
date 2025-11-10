@@ -11,10 +11,12 @@ public struct TaxionEditor : View {
     @Binding var taxion: Taxion
     @State var nom: String
     var done: () -> Void
+    var children : Bool
     
     
-    public init(_ taxion:Binding<Taxion>, _ done: @escaping () -> Void) {
+    public init(_ taxion:Binding<Taxion>, _ children:Bool, _ done: @escaping () -> Void) {
         _taxion = taxion
+        self.children = children
         self.done = done
         nom = taxion.wrappedValue.dim > 0 ? taxion.wrappedValue.nom : ""
     }
@@ -22,7 +24,11 @@ public struct TaxionEditor : View {
     public var body : some View {
         VStack {
             Form {
-                TextField("nom", text:$nom).font(.title2)
+                if children {
+                    Text(taxion.nom).font(.title2)
+                } else {
+                    TextField("nom", text:$nom).font(.title2)
+                }
 
                 TextField("caractéristiques", text:Binding<String> (
                     get: { taxion.car ?? "" },
@@ -50,7 +56,7 @@ struct TaxionPreditor : View {
     func done() {}
     
     var body : some View {
-        TaxionEditor($taxion, done)
+        TaxionEditor($taxion, true, done)
     }
 }
 

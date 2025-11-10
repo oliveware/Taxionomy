@@ -22,6 +22,10 @@ public struct TaxionomyEditor : View {
         _taxionomy = taxionomie
     }
     
+    var children: Bool {
+        !taxionomy.children(taxion).isEmpty
+    }
+    
     public var body : some View {
         VStack {
             if taxionomy.dim > 0 {
@@ -34,7 +38,7 @@ public struct TaxionomyEditor : View {
                         Spacer()
                         VStack {
                             Spacer()
-                            if taxionomy.children(taxion).isEmpty {
+                            if !children {
                                 Button("supprimer", action: { action = .delete })
                             }
                             Button("modifier", action: { action = .edit })
@@ -49,7 +53,7 @@ public struct TaxionomyEditor : View {
                         }
                     }
                 case .edit :
-                    TaxionEditor($taxion, maj)
+                    TaxionEditor($taxion, children, maj)
                 case .delete :
                     Text("confirmer la suppression de \(taxion.nom)").font(.title)
                         .padding(20)
