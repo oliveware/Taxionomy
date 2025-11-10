@@ -44,11 +44,13 @@ struct Taxions : Codable {
     }
     
     var nextid: Int {
-        let dim = items[0].dim - 1
         var max = 0
-        for taxion in items {
-            let id = taxion.type[dim]
-            if id > max { max = id }
+        if items.count > 0 {
+            let dim = items[0].dim - 1
+            for taxion in items {
+                let id = taxion.type[dim]
+                if id > max { max = id }
+            }
         }
         return max + 1
     }
