@@ -45,7 +45,9 @@ public struct TaxionEditor : View {
             }
             HStack {
                 Button("annuler", action:{
-                    taxion = previous
+                    taxion.noms = previous.noms
+                    taxion.car = previous.car
+                    taxion.use = previous.use
                     done()
                 })
                 Button("valider", action:{
