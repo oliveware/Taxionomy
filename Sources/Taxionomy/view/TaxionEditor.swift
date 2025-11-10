@@ -12,10 +12,12 @@ public struct TaxionEditor : View {
     @State var nom: String
     var done: () -> Void
     var children : Bool
+    var previous: Taxion
     
     
     public init(_ taxion:Binding<Taxion>, _ children:Bool, _ done: @escaping () -> Void) {
         _taxion = taxion
+        previous = taxion.wrappedValue
         self.children = children
         self.done = done
         nom = taxion.wrappedValue.dim > 0 ? taxion.wrappedValue.nom : ""
@@ -41,11 +43,17 @@ public struct TaxionEditor : View {
                 )
 
             }
-            Button("valider", action:{
-                taxion.changenom(nom)
-                done()
-            }).disabled(nom.count < 3)
-                .padding()
+            HStack {
+                Button("annuler", action:{
+                    taxion = previous
+                    done()
+                })
+                Button("valider", action:{
+                    taxion.changenom(nom)
+                    done()
+                }).disabled(nom.count < 3)
+                    .padding()
+            }
         }.padding()
         
     }

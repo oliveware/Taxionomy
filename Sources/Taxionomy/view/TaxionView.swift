@@ -13,7 +13,7 @@
 //
 
 import SwiftUI
-
+/*
 public struct TaxionView : View {
     var taxionomy = Taxionomy(taxionomie2)
     @Binding var taxion: Taxion
@@ -61,3 +61,4 @@ struct TaxionPreview : View {
 
 #Preview { TaxionPreview() }
 #Preview { TaxionPreview(taxion: Taxion([1,1,1])) }
+*/
