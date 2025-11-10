@@ -41,7 +41,9 @@ public struct TaxionomyEditor : View {
                             if !children {
                                 Button("supprimer", action: { action = .delete })
                             }
-                            Button("modifier", action: { action = .edit })
+                            if taxion.dim > 0 {
+                                Button("modifier", action: { action = .edit })
+                            }
                             
                             if taxion.dim <= taxionomy.dim {
                                 Button("ajouter", action: {
