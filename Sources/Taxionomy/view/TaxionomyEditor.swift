@@ -14,8 +14,7 @@ public struct TaxionomyEditor : View {
     
     enum Step {
         case pick
-        case create
-        case maj
+        case edit
         case delete
     }
     
@@ -24,52 +23,51 @@ public struct TaxionomyEditor : View {
     }
     
     public var body : some View {
-        
         VStack {
-            if taxion.dim > 0 { Text(taxion.root) }
-            Spacer()
-            switch action {
-            case .pick :
-                 //, {action = .action})
-                HStack {
-                    TaxionPicker($taxion, $taxionomy)
-                    Spacer()
-                    VStack {
+            if taxionomy.dim > 0 {
+                Text(taxion.root)
+                Spacer()
+                switch action {
+                case .pick :
+                    HStack {
+                        TaxionMaker($taxion, $taxionomy)
                         Spacer()
-                        if taxion.dim > 0 {
+                        VStack {
+                            Spacer()
                             if taxionomy.children(taxion).isEmpty {
                                 Button("supprimer", action: { action = .delete })
                             }
-                            Button("modifier", action: { action = .maj })
+                            Button("modifier", action: { action = .edit })
+                            
+                            if taxion.dim <= taxionomy.dim {
+                                Button("ajouter", action: {
+                                    taxion = taxionomy.add(taxion)
+                                    action = .edit
+                                })
+                            }
+                            Spacer()
                         }
-                        if taxion.dim < taxionomy.dim {
-                            Button("ajouter", action: {
-                                taxion.clear()
-                                action = .create
-                            })
-                        }
-                        Spacer()
+                    }
+                case .edit :
+                    TaxionEditor($taxion, maj)
+                case .delete :
+                    Text("confirmer la suppression de \(taxion.nom)").font(.title)
+                        .padding(20)
+                    HStack {
+                        Button("annuler", action: { action = .pick })
+                        Button("confirmer", action: { delete() })
                     }
                 }
-            case .create :
-                TaxionCreator($taxion, create)
-            case .maj :
-                TaxionEditor($taxion, maj)
-            case .delete :
-                Text("confirmer la suppression de \(taxion.nom)").font(.title)
-                    .padding(20)
-                HStack {
-                    Button("annuler", action: { action = .pick })
-                    Button("confirmer", action: { delete() })
-                }
+                Spacer()
+            } else {
+                Text ("Création d'une taxionomie").font(.title)
+                Button("premier élément", action: {
+                    taxion = Taxion([1],[""])
+                    taxionomy.levels = [Taxions(taxion)]
+                    action = .edit
+                })
             }
-            Spacer()
         }.padding()
-    }
-    
-    func create() {
-        taxion = taxionomy.add(taxion)
-        action = .pick
     }
     
     func maj() {
@@ -95,5 +93,5 @@ struct TaxionomyPreditor : View {
     }
 }
 
-#Preview { TaxionomyPreditor() }
-//#Preview { TaxionomyPreditor(taxion: Taxion([1,1,1])) }
+#Preview("édition") { TaxionomyPreditor() }
+#Preview("création") { TaxionomyPreditor(taxionomy: Taxionomy()) }

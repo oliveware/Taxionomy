@@ -16,6 +16,10 @@ public struct Taxionomy: Codable {
     var levels: [Taxions]
     var dim : Int { levels.count }
     
+    public init() {
+        levels = []
+    }
+    
     public init(_ json:String) {
         let jsonData = json.data(using: .utf8)!
         let set = try! JSONDecoder().decode(Flataxon.self, from: jsonData)
@@ -41,16 +45,27 @@ public struct Taxionomy: Codable {
     
     var zero:   [Taxion] { levels[0].items }
     
-    mutating func add(_ taxion:Taxion) -> Taxion {
-        return levels[taxion.dim-1].add(taxion)
-    }
-    
     mutating func maj(_ taxion: Taxion) {
         levels[taxion.dim-1].maj(taxion)
     }
     
     mutating func delete(_ taxion: Taxion) {
         levels[taxion.dim-1].delete(taxion)
+    }
+    // crée un enfant vierge et l'ajoute au level
+    mutating func add(_ parent:Taxion) -> Taxion {
+        if parent.dim == dim {
+            levels.append(Taxions())
+        }
+
+        let level = levels[parent.dim]
+        let child_id = level.nextid
+        if dim == 1 {
+            
+        }
+        let child = parent.child(child_id)
+        levels[parent.dim].items.append(child)
+        return child
     }
     
     func children(_ parent:Taxion) -> [Taxion] {

@@ -18,10 +18,12 @@ public struct TaxionomyAPI : View {
         TabView(selection: $selected) {
             TaxionomyShow(taxionomy: taxionomy)
                 .tabItem { Text("liste") }.tag(1)
-            TaxionPicker($taxion, $taxionomy)
+            TaxionPicker($taxion, taxionomy, {})
                 .tabItem { Text("picker") }.tag(2)
+            TaxionMaker($taxion, $taxionomy)
+                .tabItem { Text("maker") }.tag(3)
             TaxionomyEditor($taxionomy)
-                .tabItem { Text("éditer") }.tag(3)
+                .tabItem { Text("éditer") }.tag(4)
         }.padding()
     }
 }

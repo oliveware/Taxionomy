@@ -15,7 +15,7 @@
 import SwiftUI
 
 public struct TaxionView : View {
-    @State var taxionomy = Taxionomy(taxionomie2)
+    var taxionomy = Taxionomy(taxionomie2)
     @Binding var taxion: Taxion
     @State var picker = false
     @State var detail = false
@@ -32,7 +32,7 @@ public struct TaxionView : View {
     public var body : some View {
         VStack( alignment:.leading) {
             if picker {
-                TaxionPicker($taxion, $taxionomy) //, {picker = false})
+                TaxionPicker($taxion, taxionomy, {}) //, {picker = false})
             } else {
                 HStack {
                     if taxion.dim == 0 {

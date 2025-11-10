@@ -30,9 +30,6 @@ public struct Taxion : Codable, Identifiable {
     
     var car: String?
     var use: String?
-    var sub: String? // dans une taxionomie spécialisée
-    var imagurl: String?
-    var detailurl: String?
     
     var parent: Taxion {
         parent(type.count-1)
@@ -60,6 +57,14 @@ public struct Taxion : Codable, Identifiable {
     //preview
     init(_ type:[Int], _ taxionomy:Taxionomy = Taxionomy.besoins) {
        self = taxionomy.find(TID(type))
+    }
+    
+    func child(_ id:Int) -> Taxion {
+        var childtype = type
+            childtype.append(id)
+        var childnoms = noms
+            childnoms.append("")
+        return Taxion( childtype, childnoms)
     }
 
     mutating func clear() {

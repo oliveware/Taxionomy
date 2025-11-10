@@ -1,4 +1,11 @@
 //
+//  Untitled.swift
+//  Taxionomy
+//
+//  Created by Herve Crespel on 09/11/2025.
+//
+
+//
 //  TaxionPicker.swift
 //  Taxion
 //
@@ -8,20 +15,20 @@
 import SwiftUI
 
 public struct TaxionPicker : View {
-    @Binding var taxionomy : Taxionomy
+    var taxionomy : Taxionomy
     @Binding var taxion: Taxion
     @State var choix:[Taxion]
-   // var done: () -> Void
+    var done: () -> Void
     
     @State var pick = false
     
-    public init(_ taxion:Binding<Taxion>, _ taxionomie:Binding<Taxionomy>) {//}, _ done: @escaping () -> Void) {
+    public init(_ taxion:Binding<Taxion>, _ taxionomie:Taxionomy = Taxionomy.besoins, _ done: @escaping () -> Void) {
         _taxion = taxion
-        _taxionomy = taxionomie
-       // self.done = done
+        taxionomy = taxionomie
+       self.done = done
         let selected = taxion.wrappedValue
-        choix = selected.dim == 0 ? taxionomie.wrappedValue.zero :
-        taxionomie.wrappedValue.levels[selected.dim - 1].children(selected)
+        choix = selected.dim == 0 ? taxionomie.zero :
+        taxionomie.levels[selected.dim - 1].children(selected)
     }
     
     func select() {
@@ -82,36 +89,63 @@ public struct TaxionPicker : View {
     }
     
     public var body : some View {
-        HStack( alignment:.top) {
-                barre
-                
-                if choix.count > 0 {
-                    ScrollView {
-                        ForEach($choix) { selected in
-                            Button(action:{
-                                taxion = selected.wrappedValue
-                                choix = children(selected.wrappedValue)
-                            })
-                            {Text(selected.wrappedValue.nom).frame(width:100)}
-                        }
-                    }.frame(height:250, alignment:.leading)
-                    //.padding(.leading, CGFloat(taxion.dim * 80))
-                }
-                
-                Spacer()
-                TaxionShow(taxion)
-                Spacer()
-        }.frame(width:600, height:300, alignment:.leading)
-            .padding()
+        VStack {
+            if pick {
+                HStack{
+                    Text(taxion.id)
+                    Text(taxion.complet())
+                    Spacer()
+                    Button(action:{
+                        done()
+                        pick = false
+                    })
+                    {Image(systemName: "checkmark")}
+                }.padding()
+                HStack( alignment:.top) {
+                    barre
+                    
+                    if choix.count > 0 {
+                        ScrollView {
+                            ForEach($choix) { selected in
+                                Button(action:{
+                                    taxion = selected.wrappedValue
+                                    choix = children(selected.wrappedValue)
+                                })
+                                {Text(selected.wrappedValue.nom).frame(width:100)}
+                            }
+                        }.frame(height:250, alignment:.leading)
+                        //.padding(.leading, CGFloat(taxion.dim * 80))
+                    }
+                    
+                    Spacer()
+                    TaxionShow(taxion)
+                    Spacer()
+                }.frame(width:600, height:300, alignment:.leading)
+                    .padding()
+            } else {
+                HStack{
+                    if taxion.id == "" {
+                        Button(action:{pick = true})
+                        {Text("choisir un type")}
+                    } else {
+                        Text(taxion.id)
+                        Text(taxion.complet())
+                        Button(action:{pick = true})
+                        {Image(systemName: "pencil")}
+                    }
+                }.padding()
+            }
+        }
     }
 }
 
+
 struct TaxionPrepicker : View {
-    @State var taxionomy = Taxionomy(taxionomie2)
+    var taxionomy = Taxionomy(taxionomie2)
     @State var taxion = Taxion()
     
     var body : some View {
-        TaxionPicker($taxion, $taxionomy)
+        TaxionPicker($taxion, taxionomy, {}).frame(width:800, height:400)
     }
 }
 

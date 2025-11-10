@@ -9,6 +9,18 @@ struct Taxions : Codable {
     
     var items:[Taxion] = []
     
+    init() {}
+    
+    init(_ first:Taxion) {
+        items = [first]
+    }
+    
+    init(_ parent:Taxion?) {
+        if let taxion = parent {
+            items = [taxion.child(1)]
+        }
+    }
+    
     mutating func maj(_ taxion: Taxion) {
         var new : [Taxion] = []
         for item in items {
@@ -31,13 +43,7 @@ struct Taxions : Codable {
         items = new
     }
     
-    mutating func add(_ taxion: Taxion) -> Taxion {
-        var new = taxion
-        new.type.append(nextid)
-        items.append(new)
-        return new
-    }
-    private var nextid: Int {
+    var nextid: Int {
         let dim = items[0].dim - 1
         var max = 0
         for taxion in items {

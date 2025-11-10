@@ -33,19 +33,7 @@ public struct TaxionEditor : View {
                     get: { taxion.use ?? "" },
                     set: { taxion.use = $0 == "" ? nil : $0 })
                 )
-                TextField("image", text:Binding<String> (
-                    get: { taxion.imagurl ?? "" },
-                    set: { taxion.imagurl = $0 == "" ? nil : $0 })
-                )
-                .padding(.bottom,20)
-                TextField("détail", text:Binding<String> (
-                    get: { taxion.detailurl ?? "" },
-                    set: { taxion.detailurl = $0 == "" ? nil : $0 })
-                )
-                TextField("sous-catégorie", text:Binding<String> (
-                    get: { taxion.sub ?? "" },
-                    set: { taxion.sub = $0 == "" ? nil : $0 })
-                )
+
             }
             Button("valider", action:{
                 taxion.changenom(nom)
