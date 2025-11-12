@@ -88,54 +88,56 @@ public struct TaxionPicker : View {
         return liste
     }
     
-    public var body : some View {
+    public var picker : some View {
         VStack {
-            if pick {
-                HStack{
-                    Text(taxion.id)
-                    Text(taxion.complet())
-                    Spacer()
-                    Button(action:{
-                        done()
-                        pick = false
-                    })
-                    {Image(systemName: "checkmark")}
-                }.padding()
-                HStack( alignment:.top) {
-                    barre
-                    
-                    if choix.count > 0 {
-                        ScrollView {
-                            ForEach($choix) { selected in
-                                Button(action:{
-                                    taxion = selected.wrappedValue
-                                    choix = children(selected.wrappedValue)
-                                })
-                                {Text(selected.wrappedValue.nom).frame(width:100)}
-                            }
-                        }.frame(height:250, alignment:.leading)
-                        //.padding(.leading, CGFloat(taxion.dim * 80))
-                    }
-                    
-                    Spacer()
-                    TaxionShow(taxion)
-                    Spacer()
-                }.frame(width:600, height:300, alignment:.leading)
-                    .padding()
-            } else {
-                HStack{
-                    if taxion.id == "" {
-                        Button(action:{pick = true})
-                        {Text("choisir un type")}
-                    } else {
-                        Text(taxion.id)
-                        Text(taxion.complet())
-                        Button(action:{pick = true})
-                        {Image(systemName: "pencil")}
-                    }
-                }.padding()
-            }
+            HStack{
+                Text(taxion.id)
+                Text(taxion.complet())
+                Spacer()
+                Button(action:{
+                    done()
+                    pick = false
+                })
+                {Image(systemName: "checkmark")}
+            }.padding()
+            HStack( alignment:.top) {
+                barre
+                
+                if choix.count > 0 {
+                    ScrollView {
+                        ForEach($choix) { selected in
+                            Button(action:{
+                                taxion = selected.wrappedValue
+                                choix = children(selected.wrappedValue)
+                            })
+                            {Text(selected.wrappedValue.nom).frame(width:100)}
+                        }
+                    }.frame(height:250, alignment:.leading)
+                    //.padding(.leading, CGFloat(taxion.dim * 80))
+                }
+                
+                Spacer()
+                TaxionShow(taxion)
+                Spacer()
+            }.frame(width:600, height:300, alignment:.leading)
+                .padding()
         }
+    }
+    
+    public var body : some View {
+        HStack{
+            if taxion.id == "" {
+                Button(action:{pick = true})
+                {Text("choisir un type")}
+            } else {
+                Text(taxion.id)
+                Text(taxion.complet())
+                Button(action:{pick = true})
+                {Image(systemName: "pencil")}
+            }
+        }.padding()
+            .sheet(isPresented: $pick)
+        {picker}
     }
 }
 

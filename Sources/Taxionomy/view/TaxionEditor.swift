@@ -62,7 +62,7 @@ public struct TaxionEditor : View {
 }
 
 struct TaxionPreditor : View {
-    @State var taxion = Taxion([1,2,12,22])
+    @State var taxion = Taxion([1,2,15,47])
     func done() {}
     
     var body : some View {
