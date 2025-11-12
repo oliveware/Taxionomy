@@ -42,6 +42,14 @@ public struct Taxionomy: Codable {
         let level = levels[tid.tab.count - 1]
         return level[tid.id]
     }
+    public func find(_ tidid:String) -> Taxion {
+        var dim = 0
+        for character in tidid {
+            if !character.isNumber { dim += 1 }
+        }
+        let level = levels[dim]
+        return level[tidid]
+    }
     
     var zero:   [Taxion] { levels[0].items }
     
