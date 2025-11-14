@@ -14,7 +14,7 @@ public struct Taxionomy: Codable {
     }
     
     var levels: [Taxions]
-    var dim : Int { levels.count }
+    public var dim : Int { levels.count }
     
     public init() {
         levels = []
@@ -43,12 +43,16 @@ public struct Taxionomy: Codable {
         return level[tid.id]
     }
     public func find(_ tidid:String) -> Taxion {
-        var dim = 0
-        for character in tidid {
-            if !character.isNumber { dim += 1 }
+        if dim > 0 {
+            var dim = 0
+            for character in tidid {
+                if !character.isNumber { dim += 1 }
+            }
+            let level = levels[dim]
+            return level[tidid]
+        } else {
+            return Taxion()
         }
-        let level = levels[dim]
-        return level[tidid]
     }
     
     var zero:   [Taxion] { levels[0].items }
