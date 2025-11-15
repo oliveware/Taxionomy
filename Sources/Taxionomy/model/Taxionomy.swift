@@ -56,7 +56,7 @@ public struct Taxionomy: Codable {
         }
     }
     
-    var zero:   [Taxion] { levels[0].items }
+    var zero:   [Taxion] { dim > 0 ? levels[0].items : [] }
     
     mutating func maj(_ taxion: Taxion) {
         levels[taxion.dim-1].maj(taxion)
