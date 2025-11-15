@@ -32,7 +32,7 @@ public struct TaxionShow : View {
         VStack(alignment:.leading) {
             Spacer()
             if taxion.dim == 0 {
-                Text("choisir un type")
+                Text("\(taxionomy.nom ?? "type") non défini")
             } else {
                 
                 HStack {

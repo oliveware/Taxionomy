@@ -128,7 +128,7 @@ public struct TaxionPicker : View {
         HStack{
             if taxion.id == "" {
                 Button(action:{pick = true})
-                {Text("choisir un type")}
+                {Text("choisir \(taxionomy.nom ?? "un type")")}
             } else {
                 Text(taxion.id)
                 Text(taxion.complet())

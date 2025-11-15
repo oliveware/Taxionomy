@@ -13,6 +13,7 @@ public struct Taxionomy: Codable {
          besoins.find(tid)
     }
     
+    var nom : String?
     var levels: [Taxions]
     public var dim : Int { levels.count }
     
