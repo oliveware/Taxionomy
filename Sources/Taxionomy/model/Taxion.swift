@@ -81,7 +81,7 @@ public struct Taxion : Codable, Identifiable {
         dim > 0 ? noms[dim-1] : "NaN"
     }
     public var short:String {
-        dim > 2 ? noms[dim-2] + " " + nom : nom
+        dim > 1 ? noms[dim-2] + " " + nom : nom
     }
     var root: String {
         var string = ""
