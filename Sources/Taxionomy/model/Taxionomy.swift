@@ -17,7 +17,8 @@ public struct Taxionomy: Codable {
     var levels: [Taxions]
     public var dim : Int { levels.count }
     
-    public init() {
+    public init(_ mots:[String] = []) {
+        if mots.count > 0 { nom = mots[0] }
         levels = []
     }
     
