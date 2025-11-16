@@ -77,10 +77,10 @@ public struct Taxion : Codable, Identifiable {
             noms = [string]
         }
     }
-    var nom:String {
+    public var nom:String {
         dim > 0 ? noms[dim-1] : "NaN"
     }
-    var short:String {
+    public var short:String {
         dim > 2 ? noms[dim-2] + " " + nom : nom
     }
     var root: String {
