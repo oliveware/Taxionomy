@@ -91,7 +91,7 @@ public struct TaxionPicker : View {
     public var picker : some View {
         VStack {
             HStack{
-                Text(taxion.id)
+              //  Text(taxion.id)
                 Text(taxion.complet())
                 Spacer()
                 Button(action:{
