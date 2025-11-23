@@ -1,4 +1,4 @@
-# TaxIonomy
+tifiant# TaxIonomy
 
 Ce programme aide à définir et gérer une taxonomie, nomenclature ou hiérarchie à n niveaux.
 
@@ -41,4 +41,4 @@ Nota 2 : Dans une prochaine version, Nomenclature offrira des fonctions avancée
 
  1- Taxiomanager est une app qui utilse ce package pour gérer différentes taxionomies. 
  
- 2- Un taxion a vocation à être embarqué dans un type. Ce type peut embarquer un second taxion afin de gérer une sous-nomenclature. 
+ 2- Un taxion (ou son identifiant) a vocation à être embarqué dans un type. Ce type peut embarquer un second taxion (ou identifiant) afin de gérer une sous-nomenclature. 
