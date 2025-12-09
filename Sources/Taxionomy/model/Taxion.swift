@@ -83,15 +83,7 @@ public struct Taxion : Codable, Identifiable {
     public var short:String {
         dim > 1 ? noms[dim-2] + " " + nom : nom
     }
-    var root: String {
-        var string = ""
-        if dim > 0 {
-            for n in 0..<dim-1 {
-                string = string + " " + noms[n]
-            }
-        }
-        return string
-    }
+
     public func complet(_ sep:String = " ") -> String {
         if dim > 0 {
             var string = noms[0]
@@ -103,6 +95,20 @@ public struct Taxion : Codable, Identifiable {
             return "NaN"
         }
     }
+    public var full : [String] {
+        [complet(), car ?? "", use ?? ""]
+    }
+    
+    var root: String {
+        var string = ""
+        if dim > 0 {
+            for n in 0..<dim-1 {
+                string = string + " " + noms[n]
+            }
+        }
+        return string
+    }
+    
     var dim : Int { noms.count }
     
     var parentid : String { TID(parent.type).id }
