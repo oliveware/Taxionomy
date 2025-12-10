@@ -9,9 +9,9 @@ import Foundation
 
 public struct Mot : Codable {
     public static var inconnu = Mot("inconnu", "inconnus", .m)
-    var genre : Genre?
-    var singulier:String
-    var pluriel:String
+    public var genre : Genre?
+    public var singulier:String
+    public var pluriel:String
 
     public init(_ s:String,_ p:String?, _ g:Genre = .m) {
         singulier = s
