@@ -35,7 +35,7 @@ public struct Mot : Codable {
         "les " + pluriel
     }
     public var démonstratifs: String {
-        (genre == .f ? "cettes " : "ces ")+ pluriel
+        (genre == .f ? "cettes " : "ces ") + pluriel
     }
     
     public func quantifié(_ nombre: Int? = nil) -> String {
