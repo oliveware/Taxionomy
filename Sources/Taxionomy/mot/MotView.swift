@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct MotView: View {
+public struct MotView: View {
     @Binding var mot : Mot
     
     public init(_ mot: Binding<Mot>) {
