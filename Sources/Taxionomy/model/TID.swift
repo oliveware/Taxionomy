@@ -32,15 +32,20 @@ public struct TID : Codable, Identifiable, Equatable{
         return t
     }
     
+    // parnt ou ancètre
     public func belongsto(_ parent:TID) -> Bool {
-        if tab.count < 2 || parent.dim == 0 {
+        if dim < 2 || parent.dim < 1 {
             return false
         } else {
-            var parentab: [Int] = []
-            for i in 0..<tab.count-2 {
-                parentab.append(tab[i])
+            if parent.dim < dim {
+                var parentab: [Int] = []
+                for i in 0..<parent.dim-1 {
+                    parentab.append(tab[i])
+                }
+                return TID(parentab).id == parent.id
+            } else {
+                return false
             }
-            return TID(parentab).id == parent.id
         }
     }
     
