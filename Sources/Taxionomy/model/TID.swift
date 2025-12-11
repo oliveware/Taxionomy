@@ -21,6 +21,10 @@ public struct TID : Codable, Identifiable, Equatable{
         self.tab = tab
     }
     
+    public init(_ id:String) {
+        tab = id.split(separator: "-") as! [Int]
+    }
+    
     public var id: String {
         var t = ""
         if tab.count > 0 {
@@ -32,7 +36,7 @@ public struct TID : Codable, Identifiable, Equatable{
         return t
     }
     
-    // parnt ou ancètre
+    // parent ou ancètre
     public func belongsto(_ parent:TID) -> Bool {
         if dim < 2 || parent.dim < 1 {
             return false
@@ -47,6 +51,10 @@ public struct TID : Codable, Identifiable, Equatable{
                 return false
             }
         }
+    }
+    public func belongsto(_ parent:String) -> Bool {
+        let parentid = TID(parent)
+        return belongsto(parentid)
     }
     
     
