@@ -14,12 +14,21 @@ public struct Taxionomy: Codable {
     }
     
     var nom : String?
-    var levels: [Taxions]
+    var levels: [Taxions] = []
     public var dim : Int { levels.count }
     
     public init(_ mots:[String] = []) {
         if mots.count > 0 { nom = mots[0] }
         levels = []
+    }
+    
+    public init(_ url:URL) {
+        do {
+            self = try syncload(url)
+        } catch {
+            print ("erreur syncload")
+            levels = []
+        }
     }
     
     public init(_ json:String) {
@@ -89,6 +98,35 @@ public struct Taxionomy: Codable {
             selection = levels[dim].children(parent)
         }
         return selection
+    }
+    
+    func syncload(_ url: URL) throws -> Taxionomy {
+        let semaphore = DispatchSemaphore(value: 0)
+        var result: Result<Taxionomy, Error>!
+
+        URLSession.shared.dataTask(with: url) { data, response, error in
+            defer { semaphore.signal() }
+
+            if let error = error {
+                result = .failure(error)
+                return
+            }
+
+            guard let data = data else {
+                result = .failure(URLError(.badServerResponse))
+                return
+            }
+
+            do {
+                let user = try JSONDecoder().decode(Taxionomy.self, from: data)
+                result = .success(user)
+            } catch {
+                result = .failure(error)
+            }
+        }.resume()
+
+        semaphore.wait()
+        return try result.get()
     }
 }
 

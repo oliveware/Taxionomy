@@ -107,7 +107,8 @@ public struct TaxionMaker : View {
 }
 
 struct TaxionPremaker : View {
-    @State var taxionomy = Taxionomy(taxionomie2)
+    //@State var taxionomy = Taxionomy(taxionomie2)
+    @State var taxionomy = Taxionomy(URL(string:"http://192.168.1.41/dodata/besoins.taxionomie")!)
     @State var taxion = Taxion()
     
     var body : some View {
