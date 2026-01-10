@@ -18,6 +18,8 @@ public struct Taxion : Codable, Identifiable {
         a.nom < b.nom
     }
     
+    static var extensions:[Ext] = [.logement, .garage]
+    
     public var id:String {
         TID(type).id
     }
@@ -30,11 +32,12 @@ public struct Taxion : Codable, Identifiable {
     
     var car: String?
     var use: String?
-    var ext: Extension?
+    var ext: Ext?
     
-    enum Extension: Codable {
-        case logement
-        case garage
+    enum Ext: String, Codable, Identifiable {
+        var id: String { self.rawValue }
+        case logement = "logement"
+        case garage = "garage"
     }
     
     var parent: Taxion {

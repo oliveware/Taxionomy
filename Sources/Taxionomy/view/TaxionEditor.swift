@@ -4,7 +4,6 @@
 //
 //  Created by Herve Crespel on 05/11/2025.
 //
-
 import SwiftUI
 
 public struct TaxionEditor : View {
@@ -21,6 +20,24 @@ public struct TaxionEditor : View {
         self.children = children
         self.done = done
         nom = taxion.wrappedValue.dim > 0 ? taxion.wrappedValue.nom : ""
+    }
+    
+    var extend : some View {
+        HStack {
+            
+            Picker("extension", selection: $taxion.ext) {
+                ForEach (Taxion.extensions){
+                    ext in
+                    Text(ext.rawValue).tag(ext)
+                }
+            }.frame(width:250)
+            if taxion.ext != nil {
+                Button(action:{
+                    self.taxion.ext = nil
+                })
+                { Image(systemName: "trash") }
+            }
+        }
     }
     
     public var body : some View {
@@ -41,6 +58,7 @@ public struct TaxionEditor : View {
                     get: { taxion.use ?? "" },
                     set: { taxion.use = $0 == "" ? nil : $0 })
                 )
+                extend
 
             }
             HStack {
