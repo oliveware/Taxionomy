@@ -28,7 +28,7 @@ public struct TaxionEditor : View {
             Picker("extension", selection: $taxion.ext) {
                 ForEach (Taxion.extensions){
                     ext in
-                    Text(ext.rawValue).tag(ext)
+                    Text(ext.rawValue).tag(ext as Taxion.Ext?)
                 }
             }.frame(width:250)
             if taxion.ext != nil {
