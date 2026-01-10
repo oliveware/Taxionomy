@@ -30,6 +30,12 @@ public struct Taxion : Codable, Identifiable {
     
     var car: String?
     var use: String?
+    var ext: Extension?
+    
+    enum Extension: Codable {
+        case logement
+        case garage
+    }
     
     var parent: Taxion {
         parent(type.count-1)
