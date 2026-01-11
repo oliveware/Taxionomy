@@ -40,14 +40,15 @@ public struct TaxionEditor : View {
                     get: { taxion.use ?? "" },
                     set: { taxion.use = $0 == "" ? nil : $0 })
                 )
-                TaxionextPicker($taxion.ext)
-                    .frame(width:220)
+                
+                TextField("extension", text:Binding<String> (
+                    get: { taxion.ext ?? "" },
+                    set: { taxion.ext = $0 == "" ? nil : $0 })
+                ).frame(width:220)
             }
             HStack {
                 Button("annuler", action:{
-                    taxion.noms = previous.noms
-                    taxion.car = previous.car
-                    taxion.use = previous.use
+                    taxion = previous
                     done()
                 })
                 Button("valider", action:{
