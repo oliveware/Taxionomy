@@ -22,24 +22,6 @@ public struct TaxionEditor : View {
         nom = taxion.wrappedValue.dim > 0 ? taxion.wrappedValue.nom : ""
     }
     
-    var extend : some View {
-        HStack {
-            
-            Picker("extension", selection: $taxion.ext) {
-                ForEach (Taxion.extensions){
-                    ext in
-                    Text(ext.rawValue).tag(ext as Taxion.Ext?)
-                }
-            }.frame(width:250)
-            if taxion.ext != nil {
-                Button(action:{
-                    self.taxion.ext = nil
-                })
-                { Image(systemName: "trash") }
-            }
-        }
-    }
-    
     public var body : some View {
         VStack {
             Form {
@@ -58,8 +40,8 @@ public struct TaxionEditor : View {
                     get: { taxion.use ?? "" },
                     set: { taxion.use = $0 == "" ? nil : $0 })
                 )
-                extend
-
+                TaxionextPicker($taxion.ext)
+                    .frame(width:220)
             }
             HStack {
                 Button("annuler", action:{
