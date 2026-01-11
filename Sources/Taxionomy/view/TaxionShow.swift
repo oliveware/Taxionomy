@@ -50,6 +50,10 @@ public struct TaxionShow : View {
                         .padding(.top, 10)
                     Text(use)
                 }
+                if let ext = taxion.ext {
+                    Text("extension : \(ext)")
+                        .padding(.top, 10)
+                }
             }
             Spacer()
         }.padding()
