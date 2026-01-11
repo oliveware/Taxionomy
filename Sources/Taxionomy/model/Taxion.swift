@@ -98,7 +98,7 @@ public struct Taxion : Codable, Identifiable {
         }
     }
     public var full : [String] {
-        [complet(), car ?? "", use ?? ""]
+        [complet(), car ?? "", use ?? "", ext ?? ""]
     }
     
     var root: String {
