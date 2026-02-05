@@ -12,6 +12,9 @@ public struct Taxionomy: Codable {
     public static func besoin(_ tid:TID) -> Taxion {
          besoins.find(tid)
     }
+    public static var fonctions:[Taxion] {
+        besoins.children("2-9")
+    }
     
     var nom : String?
     var levels: [Taxions] = []
