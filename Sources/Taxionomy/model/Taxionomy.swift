@@ -53,8 +53,12 @@ public struct Taxionomy: Codable {
     }
     
     public func find(_ tid:TID) -> Taxion {
-        let level = levels[tid.tab.count - 1]
-        return level[tid.id]
+        if dim > 0 && tid.dim > 0 {
+            let level = levels[tid.tab.count - 1]
+            return level[tid.id]
+        } else {
+            return Taxion()
+        }
     }
     public func find(_ tidid:String) -> Taxion {
         if dim > 0 {
