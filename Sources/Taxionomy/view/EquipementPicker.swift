@@ -75,14 +75,26 @@ public struct EquipementPicker : View {
 }
 
 struct EquipementPrepicker : View {
-    @State var taxion = Taxion()
+    @State var equipement = Taxion()
+    @State var fonction:String = "2-9-33"
     
     var body: some View {
-        EquipementPicker($taxion, "2-9-33",  {})
-            .frame(width:300, height:300)
+        VStack {
+            Text("Equipements d'une fonction").font(.title).padding()
+            TextField("",text:$fonction).frame(width:100)
+            EquipementPicker($equipement, fonction ,  {})
+                .frame(width:300, height:300)
+        }
     }
 }
 
-#Preview {
+#Preview ("cuisson") {
     EquipementPrepicker()
+}
+
+#Preview ("froid") {
+    EquipementPrepicker(fonction:"2-9-34")
+}
+#Preview ("sanitaire") {
+    EquipementPrepicker(fonction:"2-9-38")
 }
