@@ -32,7 +32,7 @@ public struct Taxion : Codable, Identifiable {
     var use: String?
     var ext: String?
 
-    var isNaN : Bool { type.count == 0 || noms.count == 0 }
+    public var isNaN : Bool { type.count == 0 || noms.count == 0 }
     
     var parent: Taxion {
         parent(type.count-1)
