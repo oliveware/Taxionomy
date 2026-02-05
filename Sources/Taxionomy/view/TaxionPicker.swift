@@ -1,11 +1,4 @@
 //
-//  Untitled.swift
-//  Taxionomy
-//
-//  Created by Herve Crespel on 09/11/2025.
-//
-
-//
 //  TaxionPicker.swift
 //  Taxion
 //
@@ -136,8 +129,7 @@ public struct TaxionPicker : View {
                 {Image(systemName: "pencil")}
             }
         }.padding()
-            .sheet(isPresented: $pick)
-        {picker}
+            .sheet(isPresented: $pick) {picker}
     }
 }
 

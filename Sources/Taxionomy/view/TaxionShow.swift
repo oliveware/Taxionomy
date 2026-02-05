@@ -1,14 +1,6 @@
 //
 //  TaxionShow.swift
-//  Taxion
-//
-//  Created by Herve Crespel on 04/11/2025.
-//
-
-//
-//  TaxionPicker.swift
-//  Taxion
-//
+//  Taxionnomy
 //  Created by Herve Crespel on 31/10/2025.
 //
 
