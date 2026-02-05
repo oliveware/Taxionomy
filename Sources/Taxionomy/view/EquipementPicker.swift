@@ -8,20 +8,20 @@
 import SwiftUI
 
 public struct EquipementPicker : View {
-    var taxionomy : Taxionomy
+
     @Binding var equipement: Taxion
     var done: () -> Void = {}
     @State var parentid : String
     var fonction : String
     
-    public init(_ equipement:Binding<Taxion>, _ taxionomie:Taxionomy = Taxionomy.besoins, _ fonction:String, _ done: @escaping () -> Void) {
+    public init(_ equipement:Binding<Taxion>, _ fonction:String, _ done: @escaping () -> Void) {
         _equipement = equipement
-        taxionomy = taxionomie
         pick = equipement.wrappedValue.isNaN
         self.done = done
         self.fonction = fonction
         parentid = fonction
     }
+    var taxionomy:Taxionomy {Taxionomy.besoins}
         
     var children : [Taxion] {
         let taxion = taxionomy.find(parentid)
@@ -33,7 +33,6 @@ public struct EquipementPicker : View {
         return liste
     }
     
-    
     @State private var pick :Bool
     public var body: some View {
         VStack {
@@ -42,7 +41,7 @@ public struct EquipementPicker : View {
                     ScrollView {
                         ForEach(children) { selected in
                             Button(action:{
-                                if taxionomy.children(selected).count == 0 {
+                                if taxionomy.children(selected.id).count == 0 {
                                     equipement = selected
                                     pick = false
                                 } else {
@@ -79,7 +78,7 @@ struct EquipementPrepicker : View {
     @State var taxion = Taxion()
     
     var body: some View {
-        EquipementPicker($taxion, Taxionomy.besoins, "2-9-33",  {})
+        EquipementPicker($taxion, "2-9-33",  {})
             .frame(width:300, height:300)
     }
 }

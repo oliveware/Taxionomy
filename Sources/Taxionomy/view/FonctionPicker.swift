@@ -8,37 +8,32 @@
 import SwiftUI
 
 public struct FonctionPicker : View {
-    var taxionomy : Taxionomy
+
     @Binding var fonction: Taxion
     var done: () -> Void = {}
-    var parentid : String
+    var fonctions:[Taxion]
     
-    public init(_ fonction:Binding<Taxion>, _ taxionomie:Taxionomy = Taxionomy.besoins, _ parent:String, _ done: @escaping () -> Void) {
+    public init(_ fonction:Binding<Taxion>, _ fonctions:[Taxion], _ done: @escaping () -> Void) {
         _fonction = fonction
-        taxionomy = taxionomie
         pick = fonction.wrappedValue.isNaN
         self.done = done
-        parentid = parent
-    }
-        
-    var children: [Taxion] {
-        let taxion = taxionomy.find(parentid)
-        var liste : [Taxion] = []
-        if taxion.dim < taxionomy.levels.count {
-            let children = taxionomy.levels[taxion.dim].children(taxion)
-            liste = taxion.dim > 2  ? children.sorted(by: <) : children
-        }
-        return liste
+        self.fonctions = fonctions
     }
     
+    public init(_ fonction:Binding<Taxion>, _ done: @escaping () -> Void) {
+        _fonction = fonction
+        pick = fonction.wrappedValue.isNaN
+        self.done = done
+        self.fonctions = Taxionomy.fonctions
+    }
     
     @State private var pick :Bool
     public var body: some View {
         VStack {
             if pick {
-                if children.count > 0 {
+                if fonctions.count > 0 {
                     ScrollView {
-                        ForEach(children) { selected in
+                        ForEach(fonctions) { selected in
                             Button(action:{
                                 fonction = selected
                                 pick = false
@@ -72,8 +67,10 @@ struct FonctionPrepicker : View {
     @State var taxion = Taxion()
     
     var body: some View {
-        FonctionPicker($taxion, Taxionomy.besoins, "2-9",  {})
-            .frame(width:300, height:300)
+        VStack {
+            Text("Fonctions d'équipement").font(.title).padding()
+            FonctionPicker($taxion,   {})
+        }.frame(width:300, height:400)
     }
 }
 
