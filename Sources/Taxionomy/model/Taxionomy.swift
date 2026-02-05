@@ -91,6 +91,10 @@ public struct Taxionomy: Codable {
         return child
     }
     
+    public func children(_ tidid:String) -> [Taxion] {
+        children(find(tidid))
+    }
+    
     func children(_ parent:Taxion) -> [Taxion] {
         var selection: [Taxion] = []
         let dim = parent.dim
