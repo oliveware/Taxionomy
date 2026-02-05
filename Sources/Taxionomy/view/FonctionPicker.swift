@@ -11,17 +11,18 @@ public struct FonctionPicker : View {
     var taxionomy : Taxionomy
     @Binding var fonction: Taxion
     var done: () -> Void = {}
+    var parentid : String
     
     public init(_ fonction:Binding<Taxion>, _ taxionomie:Taxionomy = Taxionomy.besoins, _ parent:String, _ done: @escaping () -> Void) {
         _fonction = fonction
         taxionomy = taxionomie
         pick = fonction.wrappedValue.isNaN
         self.done = done
-        
+        parentid = parent
     }
         
     var children: [Taxion] {
-        let taxion = taxionomy.find(fonction.tid)
+        let taxion = taxionomy.find(parentid)
         var liste : [Taxion] = []
         if taxion.dim < taxionomy.levels.count {
             let children = taxionomy.levels[taxion.dim].children(taxion)
@@ -35,17 +36,6 @@ public struct FonctionPicker : View {
     public var body: some View {
         VStack {
             if pick {
-                HStack{
-                    //  Text(taxion.id)
-                    Text(fonction.nom)
-                    Spacer()
-                    Button(action:{
-                        done()
-                        pick = false
-                    })
-                    {Image(systemName: "pencil")}
-                }.padding()
-            } else {
                 if children.count > 0 {
                     ScrollView {
                         ForEach(children) { selected in
@@ -60,6 +50,18 @@ public struct FonctionPicker : View {
                 } else {
                     Text("aucun choix")
                 }
+                
+            } else {
+                HStack{
+                    //  Text(taxion.id)
+                    Text(fonction.nom)
+                    Spacer()
+                    Button(action:{
+                        done()
+                        pick = true
+                    })
+                    {Image(systemName: "pencil")}
+                }.padding()
                 //  }.frame(width:600, height:300, alignment:.leading)
             }
         }.padding()
@@ -71,6 +73,7 @@ struct FonctionPrepicker : View {
     
     var body: some View {
         FonctionPicker($taxion, Taxionomy.besoins, "2-9",  {})
+            .frame(width:300, height:300)
     }
 }
 
