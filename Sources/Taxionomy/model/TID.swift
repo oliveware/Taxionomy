@@ -22,7 +22,14 @@ public struct TID : Codable, Identifiable, Equatable{
     }
     
     public init(_ id:String) {
-        tab = id.split(separator: "-") as! [Int]
+    var tabint : [Int] = []
+       let split = id.split(separator: "-")
+        for sub in split {
+            if let integer = Int(sub) {
+                tabint.append(integer)
+            }
+        }
+        tab = tabint
     }
     
     public var id: String {
