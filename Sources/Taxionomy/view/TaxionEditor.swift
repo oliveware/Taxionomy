@@ -1,5 +1,5 @@
 //
-//  TaxionCreator.swift
+//  TaxionEditor.swift
 //  Taxion
 //
 //  Created by Herve Crespel on 05/11/2025.
@@ -30,6 +30,11 @@ public struct TaxionEditor : View {
                 } else {
                     TextField("nom", text:$nom).font(.title2)
                 }
+                
+                TextField("label", text:Binding<String> (
+                    get: { taxion.nomlong ?? taxion.concat + " " + nom },
+                    set: { taxion.nomlong = $0 == "" ? nil : $0 })
+                )
 
                 TextField("caractéristiques", text:Binding<String> (
                     get: { taxion.car ?? "" },

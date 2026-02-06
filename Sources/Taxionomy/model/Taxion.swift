@@ -27,7 +27,23 @@ public struct Taxion : Codable, Identifiable {
     
     public var type: [Int]
     var noms: [String]
-    
+    var concat : String {
+        var string = ""
+        if noms.count > 1 {
+            for i in 0..<noms.count-2 {
+                string = string + " " + noms[i]
+            }
+        } 
+        return string
+    }
+    var nomlong: String?
+    var label: String {
+        if let nom = nomlong {
+            return nom
+        } else {
+            return concat
+        }
+    }
     var car: String?
     var use: String?
     var ext: String?
