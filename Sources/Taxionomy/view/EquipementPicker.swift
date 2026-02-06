@@ -35,39 +35,35 @@ public struct EquipementPicker : View {
     
     @State private var pick :Bool
     public var picker: some View {
-        HStack{
-            if children.count > 0 {
-                ScrollView {
-                    ForEach(children) { taxion in
-                        Button(action:{
-                            if taxionomy.children(taxion.id).count == 0 {
-                                equipement = taxion
-                                pick = false
-                            } else {
-                                parentid = taxion.id
-                            }
-                        })
-                        {Text(taxion.nom).frame(width:100)}
+        ScrollView {
+            ForEach(children) { taxion in
+                Button(action:{
+                    if taxionomy.children(taxion.id).count == 0 {
+                        equipement = taxion
+                        pick = false
+                    } else {
+                        parentid = taxion.id
                     }
-                }
-                //.padding(.leading, CGFloat(taxion.dim * 80))
-            } else {
-                Text("aucun choix")
+                })
+                {Text(taxion.nom).frame(width:100)}
             }
         }
     }
     
     public var body: some View {
-        HStack {
-            Text(equipement.nom)
-            
-            Button(action:{
-                done()
-                pick = true
-                parentid = fonction
-            })
-            {Image(systemName: "pencil")}
-                .sheet(isPresented: $pick){picker}
+        ZStack {
+            if pick{picker} else {
+                HStack(spacing:10) {
+                    Text(equipement.nom)
+                    
+                    Button(action:{
+                        done()
+                        pick = true
+                        parentid = fonction
+                    })
+                    {Image(systemName: "pencil")}
+                }.frame(height:50)
+            }
         }
     }
 }
@@ -81,8 +77,8 @@ struct EquipementPrepicker : View {
             Text("Equipements d'une fonction").font(.title).padding()
            TextField("",text:$fonction).frame(width:100)
             EquipementPicker($equipement, fonction ,  {})
-                .frame(width:300, height:300)
-        }
+                Spacer()
+        }.frame(width:300, height:250)
     }
 }
 
