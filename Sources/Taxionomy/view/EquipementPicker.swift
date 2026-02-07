@@ -41,6 +41,7 @@ public struct EquipementPicker : View {
                     if taxionomy.children(taxion.id).count == 0 {
                         equipement = taxion
                         pick = false
+                        done()
                     } else {
                         parentid = taxion.id
                     }
@@ -57,7 +58,6 @@ public struct EquipementPicker : View {
                     Text(equipement.nom)
                     
                     Button(action:{
-                        done()
                         pick = true
                         parentid = fonction
                     })
