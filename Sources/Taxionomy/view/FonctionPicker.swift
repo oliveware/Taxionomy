@@ -38,7 +38,7 @@ public struct FonctionPicker : View {
                                 fonction = selected
                                 pick = false
                             })
-                            {Text(selected.nom).frame(width:100)}
+                            {Text(selected.label).frame(width:100)}
                         }
                     }.frame(height:250, alignment:.leading)
                     //.padding(.leading, CGFloat(taxion.dim * 80))
@@ -49,7 +49,7 @@ public struct FonctionPicker : View {
             } else {
                 HStack{
                     //  Text(taxion.id)
-                    Text(fonction.nom)
+                    Text(fonction.label)
                     Spacer()
                     Button(action:{
                         done()
