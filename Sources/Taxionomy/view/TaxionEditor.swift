@@ -26,7 +26,7 @@ public struct TaxionEditor : View {
         VStack {
             Form {
                 if children {
-                    Text(taxion.nom).font(.title2)
+                    Text(taxion.label).font(.title2)
                 } else {
                     TextField("label", text:$label).font(.title2)
                 }

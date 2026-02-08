@@ -47,7 +47,7 @@ public struct TidChildrenPicker : View {
                         current = taxion.id
                     }
                 })
-                {Text(taxion.nom).frame(width:100)}
+                {Text(taxion.label).frame(width:100)}
             }
         }
     }

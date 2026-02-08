@@ -57,7 +57,7 @@ public struct TaxionomyEditor : View {
                 case .edit :
                     TaxionEditor($taxion, children, maj)
                 case .delete :
-                    Text("confirmer la suppression de \(taxion.nom)").font(.title)
+                    Text("confirmer la suppression de \(taxion.label)").font(.title)
                         .padding(20)
                     HStack {
                         Button("annuler", action: { action = .pick })
