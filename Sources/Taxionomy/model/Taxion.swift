@@ -37,7 +37,7 @@ public struct Taxion : Codable, Identifiable {
         return string
     }
     var nomlong: String?
-    var label: String {
+    public var nom: String {
         if let nom = nomlong {
             return nom
         } else {
@@ -96,7 +96,7 @@ public struct Taxion : Codable, Identifiable {
             noms = [string]
         }
     }
-    public var nom:String {
+    public var label:String {
         dim > 0 ? noms[dim-1] : "NaN"
     }
     public var short:String {

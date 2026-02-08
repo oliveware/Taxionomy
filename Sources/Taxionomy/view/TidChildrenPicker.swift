@@ -70,67 +70,6 @@ public struct TidChildrenPicker : View {
     }
 }
 
-struct EquipementPickerOld : View {
-
-    @Binding var equipement: Taxion
-    var done: () -> Void
-    @State var parentid : String
-    var fonction : String
-    
-    public init(_ equipement:Binding<Taxion>, _ fonction:String, _ done: @escaping () -> Void) {
-        _equipement = equipement
-        pick = equipement.wrappedValue.isNaN
-        self.done = done
-        self.fonction = fonction
-        parentid = fonction
-    }
-    var taxionomy:Taxionomy {Taxionomy.besoins}
-        
-    var children : [Taxion] {
-        let taxion = taxionomy.find(parentid)
-        var liste : [Taxion] = []
-        if taxion.dim < taxionomy.levels.count {
-            let children = taxionomy.levels[taxion.dim].children(taxion)
-            liste = taxion.dim > 2  ? children.sorted(by: <) : children
-        }
-        return liste
-    }
-    
-    @State private var pick :Bool
-    public var picker: some View {
-        ScrollView {
-            ForEach(children) { taxion in
-                Button(action:{
-                    if taxionomy.children(taxion.id).count == 0 {
-                        equipement = taxion
-                        pick = false
-                        done()
-                    } else {
-                        parentid = taxion.id
-                    }
-                })
-                {Text(taxion.nom).frame(width:100)}
-            }
-        }
-    }
-    
-    public var body: some View {
-        ZStack {
-            if pick { picker } else {
-                HStack(spacing:10) {
-                    Text($equipement.wrappedValue.nom)
-                    
-                    Button(action:{
-                        pick = true
-                        parentid = fonction
-                    })
-                    {Image(systemName: "pencil")}
-                }.frame(height:50)
-            }
-        }
-    }
-}
-
 struct TidChildrenPrepicker : View {
     @State var tidid = ""
     @State var parent:String = "2-9-33"

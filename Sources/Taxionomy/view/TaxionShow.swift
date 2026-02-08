@@ -29,7 +29,8 @@ public struct TaxionShow : View {
                 
                 HStack {
                     Spacer()
-                    Text(taxion.nom).font(.title)
+                    Text(taxion.label).font(.title)
+                    Text(taxion.nom)
                     Spacer()
                 }
                 if let car = taxion.car {

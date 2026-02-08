@@ -8,7 +8,7 @@ import SwiftUI
 
 public struct TaxionEditor : View {
     @Binding var taxion: Taxion
-    @State var nom: String
+    @State var label: String
     var done: () -> Void
     var children : Bool
     var previous: Taxion
@@ -19,7 +19,7 @@ public struct TaxionEditor : View {
         previous = taxion.wrappedValue
         self.children = children
         self.done = done
-        nom = taxion.wrappedValue.dim > 0 ? taxion.wrappedValue.nom : ""
+        label = taxion.wrappedValue.dim > 0 ? taxion.wrappedValue.label : ""
     }
     
     public var body : some View {
@@ -28,11 +28,11 @@ public struct TaxionEditor : View {
                 if children {
                     Text(taxion.nom).font(.title2)
                 } else {
-                    TextField("nom", text:$nom).font(.title2)
+                    TextField("label", text:$label).font(.title2)
                 }
                 
-                TextField("label", text:Binding<String> (
-                    get: { taxion.nomlong ?? taxion.concat + " " + nom },
+                TextField("nom", text:Binding<String> (
+                    get: { taxion.nomlong ?? taxion.concat + " " + label},
                     set: { taxion.nomlong = $0 == "" ? nil : $0 })
                 )
 
@@ -57,9 +57,9 @@ public struct TaxionEditor : View {
                     done()
                 })
                 Button("valider", action:{
-                    taxion.changenom(nom)
+                    taxion.changenom(label)
                     done()
-                }).disabled(nom.count < 3)
+                }).disabled(label.count < 3)
                     .padding()
             }
         }.padding()
@@ -70,11 +70,13 @@ public struct TaxionEditor : View {
 struct TaxionPreditor : View {
     @State var taxion = Taxion([1,2,15,47])
     func done() {}
+    var children = true
     
     var body : some View {
-        TaxionEditor($taxion, true, done)
+        TaxionEditor($taxion, children, done)
     }
 }
 
 #Preview { TaxionPreditor(taxion:Taxion()) }
 #Preview { TaxionPreditor() }
+#Preview { TaxionPreditor(children:false) }
