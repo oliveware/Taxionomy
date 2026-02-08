@@ -55,7 +55,7 @@ public struct EquipementPicker : View {
         ZStack {
             if pick { picker } else {
                 HStack(spacing:10) {
-                    Text(equipement.nom)
+                    Text($equipement.wrappedValue.nom)
                     
                     Button(action:{
                         pick = true
