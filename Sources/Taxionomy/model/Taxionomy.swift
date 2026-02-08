@@ -8,7 +8,7 @@ import Foundation
 
 
 public struct Taxionomy: Codable {
-    public static let besoins = Taxionomy(taxionomie2)
+    public static var besoins = Taxionomy(taxionomie2)
     public static func besoin(_ tid:TID) -> Taxion {
          besoins.find(tid)
     }

@@ -41,7 +41,7 @@ public struct Taxion : Codable, Identifiable {
         if let nom = nomlong {
             return nom
         } else {
-            return concat
+            return label
         }
     }
     var car: String?
