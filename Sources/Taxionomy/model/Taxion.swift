@@ -37,7 +37,7 @@ public struct Taxion : Codable, Identifiable {
         return string
     }
     var nomlong: String?
-    public var nom: String {
+    var nom: String {
         if let nom = nomlong {
             return nom
         } else {
