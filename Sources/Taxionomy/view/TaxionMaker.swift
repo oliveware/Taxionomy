@@ -92,7 +92,7 @@ public struct TaxionMaker : View {
                                 taxion = selected.wrappedValue
                                 choix = children(selected.wrappedValue)
                             })
-                            {Text(selected.wrappedValue.nom).frame(width:100)}
+                            {Text(selected.wrappedValue.label).frame(width:100)}
                         }
                     }.frame(height:250, alignment:.leading)
                     //.padding(.leading, CGFloat(taxion.dim * 80))
