@@ -10,7 +10,7 @@ import SwiftUI
 public struct EquipementPicker : View {
 
     @Binding var equipement: Taxion
-    var done: () -> Void = {}
+    var done: () -> Void
     @State var parentid : String
     var fonction : String
     
@@ -53,7 +53,7 @@ public struct EquipementPicker : View {
     
     public var body: some View {
         ZStack {
-            if pick{picker} else {
+            if pick { picker } else {
                 HStack(spacing:10) {
                     Text(equipement.nom)
                     
