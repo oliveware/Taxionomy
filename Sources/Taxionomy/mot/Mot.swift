@@ -8,7 +8,13 @@
 import Foundation
 
 public struct Mot : Codable {
+    static func == (_ a:Mot, _ b:Mot) -> Bool {
+        a.singulier == b.singulier
+    }
+    
+    public static var all = Dico()
     public static var inconnu = Mot("inconnu", "inconnus", .m)
+    
     public var genre : Genre?
     public var singulier:String
     public var pluriel:String
@@ -17,6 +23,7 @@ public struct Mot : Codable {
         singulier = s
         pluriel = p ?? ""
         genre = g
+        Mot.all.add( self)
     }
     
     public var selector : String { singulier }
@@ -61,3 +68,5 @@ public struct Mot : Codable {
         }
     }
 }
+
+
