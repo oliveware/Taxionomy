@@ -20,11 +20,11 @@ public struct FonctionPicker : View {
         self.fonctions = fonctions
     }
     
-    public init(_ fonction:Binding<Taxion>, _ done: @escaping () -> Void) {
+    public init(_ fonction:Binding<Taxion>, _ exclude:[String], _ done: @escaping () -> Void) {
         _fonction = fonction
         pick = fonction.wrappedValue.isNaN
         self.done = done
-        self.fonctions = Taxionomy.fonctions
+        self.fonctions = Taxionomy.fonctions.filter {item in !exclude.contains(item.id)}
     }
     
     @State private var pick :Bool
@@ -65,15 +65,20 @@ public struct FonctionPicker : View {
 
 struct FonctionPrepicker : View {
     @State var taxion = Taxion()
+    var exclude: [String] = ["2-9-37", "2-9-34", "2-9-36"]
     
     var body: some View {
         VStack {
             Text("Fonctions d'équipement").font(.title).padding()
-            FonctionPicker($taxion,   {})
+            FonctionPicker($taxion, exclude,  {})
+            Text(taxion.id)
         }.frame(width:300, height:400)
     }
 }
 
 #Preview {
     FonctionPrepicker()
+}
+#Preview {
+    FonctionPrepicker(exclude:[])
 }
