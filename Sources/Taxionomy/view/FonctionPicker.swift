@@ -13,12 +13,12 @@ public struct FonctionPicker : View {
     var done: () -> Void = {}
     var fonctions:[Taxion]
     
-    public init(_ fonction:Binding<Taxion>, _ fonctions:[Taxion], _ done: @escaping () -> Void) {
+  /*  public init(_ fonction:Binding<Taxion>, _ fonctions:[Taxion], _ done: @escaping () -> Void) {
         _fonction = fonction
         pick = fonction.wrappedValue.isNaN
         self.done = done
         self.fonctions = fonctions
-    }
+    }*/
     
     public init(_ fonction:Binding<Taxion>, _ exclude:[String], _ done: @escaping () -> Void) {
         _fonction = fonction
