@@ -1,5 +1,5 @@
 //
-//  File.swift
+//  Mot.swift
 //  
 //
 //  Created by Herve Crespel on 11/12/2023.
@@ -19,9 +19,9 @@ public struct Mot : Codable {
     public var singulier:String
     public var pluriel:String
 
-    public init(_ s:String,_ p:String?, _ g:Genre = .m) {
+    public init(_ s:String,_ p:String? = nil, _ g:Genre = .m) {
         singulier = s
-        pluriel = p ?? ""
+        pluriel = p ?? (s + "s")
         genre = g
         Mot.all.add( self)
     }
