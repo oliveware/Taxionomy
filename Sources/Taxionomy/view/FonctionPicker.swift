@@ -15,49 +15,31 @@ public struct FonctionPicker : View {
     
     public init(_ fonction:Binding<Taxion>, _ fonctions:[Taxion], _ done: @escaping () -> Void) {
         _fonction = fonction
-        pick = fonction.wrappedValue.isNaN
         self.done = done
         self.fonctions = fonctions
     }
     
     public init(_ fonction:Binding<Taxion>, _ exclude:[String], _ done: @escaping () -> Void) {
         _fonction = fonction
-        pick = fonction.wrappedValue.isNaN
         self.done = done
         self.fonctions = Taxionomy.fonctions.filter {item in !exclude.contains(item.id)}
     }
     
-    @State private var pick :Bool
     public var body: some View {
         VStack {
-            if pick {
-                if fonctions.count > 0 {
-                    ScrollView {
-                        ForEach(fonctions) { selected in
-                            Button(action:{
-                                fonction = selected
-                                pick = false
-                            })
-                            {Text(selected.label).frame(width:100)}
-                        }
-                    }.frame(height:250, alignment:.leading)
-                    //.padding(.leading, CGFloat(taxion.dim * 80))
-                } else {
-                    Text("aucun choix")
-                }
-                
+            if fonctions.count > 0 {
+                ScrollView {
+                    ForEach(fonctions) { selected in
+                        Button(action:{
+                            fonction = selected
+                            done()
+                        })
+                        {Text(selected.label).frame(width:100)}
+                    }
+                }.frame(height:250, alignment:.leading)
+                //.padding(.leading, CGFloat(taxion.dim * 80))
             } else {
-                HStack{
-                    //  Text(taxion.id)
-                    Text(fonction.label)
-                    Spacer()
-                    Button(action:{
-                        done()
-                        pick = true
-                    })
-                    {Image(systemName: "pencil")}
-                }.padding()
-                //  }.frame(width:600, height:300, alignment:.leading)
+                Text("aucun choix")
             }
         }.padding()
     }
@@ -72,6 +54,7 @@ struct FonctionPrepicker : View {
             Text("Fonctions d'équipement").font(.title).padding()
             FonctionPicker($taxion, exclude,  {})
             Text(taxion.id)
+            Text(taxion.nom)
         }.frame(width:300, height:400)
     }
 }
