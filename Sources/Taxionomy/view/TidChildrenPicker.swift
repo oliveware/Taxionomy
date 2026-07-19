@@ -53,10 +53,11 @@ public struct TidChildrenPicker : View {
     }
     
     public var body: some View {
-        if pick { picker } else {
+        picker
+      /*  if pick { picker } else {
             HStack(spacing:10) {
                 if tidid == "" {
-                    Text("choisir \(mot.indéterminé)")
+                    Text("ajouter \(mot.indéterminé)")
                 } else {
                     Text(taxionomy.find(tidid).nom)
                 }
@@ -66,7 +67,7 @@ public struct TidChildrenPicker : View {
                 })
                 {Image(systemName: "pencil")}
             }.frame(height:50)
-        }
+        }*/
     }
 }
 
@@ -79,10 +80,11 @@ struct TidChildrenPrepicker : View {
     
     var body: some View {
         VStack {
+            TextField("",text:$parent).frame(width:100)
             Text("\(mot.pluriel) de \(nomparent)").font(.title).padding()
-           TextField("",text:$parent).frame(width:100)
-            TidChildrenPicker($tidid, parent , mot, {})
-                Spacer()
+           
+            TidChildrenPicker($tidid, $parent.wrappedValue , mot, {})
+            Text(tidid)
         }.frame(width:300, height:250)
     }
 }
