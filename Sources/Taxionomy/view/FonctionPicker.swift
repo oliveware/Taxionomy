@@ -12,24 +12,22 @@ public struct FonctionPicker : View {
     @Binding var fonction: Taxion
     @Binding var equipements: [Taxion]
     var done: () -> Void = {}
-    var fonctions:[Taxion]
+    var fonctions:[Taxion] = []
     var mot = Mot("équipement", "équipements", .m)
     
-    public init(_ fonction:Binding<Taxion>,_ equipements:Binding<[Taxion]>, _ fonctions:[Taxion], _ done: @escaping () -> Void) {
+    public init(_ fonction:Binding<Taxion>,_ equipements:Binding<[Taxion]>, _ foncids:[String], _ include:Bool, _ done: @escaping () -> Void) {
         _fonction = fonction
         fonctionpick = fonction.wrappedValue.isNaN
         _equipements = equipements
         self.done = done
-        self.fonctions = fonctions
         
-    }
-    
-    public init(_ fonction:Binding<Taxion>,_ equipements:Binding<[Taxion]>, _ exclude:[String], _ done: @escaping () -> Void) {
-        _fonction = fonction
-        fonctionpick = fonction.wrappedValue.isNaN
-        _equipements = equipements
-        self.done = done
-        self.fonctions = Taxionomy.fonctions.filter {item in !exclude.contains(item.id)}
+        if include {
+            for tidid in foncids {
+                fonctions.append(taxionomy.find(tidid))
+            }
+        } else {
+            fonctions = Taxionomy.fonctions.filter {item in !foncids.contains(item.id)}
+        }
     }
     
     @State var fonctionpick : Bool
@@ -46,7 +44,7 @@ public struct FonctionPicker : View {
                         })
                         {Text(selected.label).frame(width:100)}
                     }
-                }.frame(height:250, alignment:.leading)
+                }.frame(height:220, alignment:.leading)
                 //.padding(.leading, CGFloat(taxion.dim * 80))
             } else {
                 Text("aucune fonction")
@@ -113,6 +111,7 @@ public struct FonctionPicker : View {
                     HStack {
                         Button(action:{ suppression.toggle() })
                         { Image(systemName: "minus").foregroundColor(.pink) }
+                        Spacer()
                         Button(action:{
                             ajout = true
                             suppression = false
@@ -129,21 +128,30 @@ public struct FonctionPicker : View {
 struct FonctionPrepicker : View {
     @State var taxion = Taxion()
     @State var equipements : [Taxion] = []
-    var exclude: [String] = ["2-9-37", "2-9-34", "2-9-36"]
+    var tidids: [String] = ["2-9-37", "2-9-34", "2-9-36"]
+    var include = false
     
     var body: some View {
         VStack {
             Text("Equipements").font(.title).padding()
-            FonctionPicker($taxion, $equipements, exclude,  {})
+            FonctionPicker($taxion, $equipements, tidids, include,  {})
             //Text(taxion.id)
            // Text(taxion.nom)
-        }.frame(width:300, height:400)
+        }.frame(width:180, height:280).padding()
     }
 }
 
 #Preview {
-    FonctionPrepicker()
+    HStack(spacing:20) {
+        GroupBox("all") {
+            FonctionPrepicker(tidids:[])
+        }
+        GroupBox("exclusion") {
+            FonctionPrepicker()
+        }
+        GroupBox("selection") {
+            FonctionPrepicker(include:true)
+        }
+    }.padding()
 }
-#Preview {
-    FonctionPrepicker(exclude:[])
-}
+
