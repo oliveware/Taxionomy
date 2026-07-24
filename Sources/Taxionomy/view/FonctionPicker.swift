@@ -10,10 +10,12 @@ import SwiftUI
 public struct FonctionPicker: View {
     @Binding var fonction:Taxion
     var choix:[Taxion] = []
+    var done: () -> Void = {}
     
-    public init(_ fonction:Binding<Taxion>, _ exclude:[String]) {
+    public init(_ fonction:Binding<Taxion>, _ exclude:[String], _ done: @escaping () -> Void) {
         _fonction = fonction
         choix = Taxionomy.fonctions.filter {item in !exclude.contains(item.id)}
+        self.done = done
     }
     
     
@@ -24,8 +26,7 @@ public struct FonctionPicker: View {
                     ForEach(choix) { selected in
                         Button(action:{
                             fonction = selected
-                            //ajout = true
-                            //done()
+                            done()
                         })
                         {Text(selected.nom).frame(width:100)}
                     }
@@ -45,7 +46,7 @@ struct FonctionPrepicker : View {
     var body: some View {
         VStack {
             Text("Fonctions").font(.title2)
-            FonctionPicker($taxion, exclude)
+            FonctionPicker($taxion, exclude, {})
             Text(taxion.id)
             Text(taxion.nom)
         }.frame(width:180, height:300).padding()
