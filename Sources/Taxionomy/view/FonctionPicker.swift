@@ -2,156 +2,63 @@
 //  FonctionPicker.swift
 //  Taxionomy
 //
-//  Created by Herve Crespel on 05/02/2026.
+//  Created by Herve Crespel on 23/07/2026.
 //
 
 import SwiftUI
 
-public struct FonctionPicker : View {
-
-    @Binding var fonction: Taxion
-    @Binding var equipements: [Taxion]
-    var done: () -> Void = {}
-    var fonctions:[Taxion] = []
-    var mot = Mot("équipement", "équipements", .m)
+struct FonctionPicker: View {
+    @Binding var fonction:Taxion
+    var choix:[Taxion] = []
     
-    public init(_ fonction:Binding<Taxion>,_ equipements:Binding<[Taxion]>, _ foncids:[String], _ include:Bool, _ done: @escaping () -> Void) {
+    init(_ fonction:Binding<Taxion>, _ exclude:[String]) {
         _fonction = fonction
-        fonctionpick = fonction.wrappedValue.isNaN
-        _equipements = equipements
-        self.done = done
-        
-        if include {
-            for tidid in foncids {
-                fonctions.append(taxionomy.find(tidid))
-            }
-        } else {
-            fonctions = Taxionomy.fonctions.filter {item in !foncids.contains(item.id)}
-        }
+        choix = Taxionomy.fonctions.filter {item in !exclude.contains(item.id)}
     }
     
-    @State var fonctionpick : Bool
-    var pick: some View {
+    
+    var body: some View {
         VStack {
-            if fonctions.count > 0 {
+            if choix.count > 0 {
                 ScrollView {
-                    ForEach(fonctions) { selected in
+                    ForEach(choix) { selected in
                         Button(action:{
                             fonction = selected
-                            ajout = true
-                            done()
-                            fonctionpick = false
+                            //ajout = true
+                            //done()
                         })
-                        {Text(selected.label).frame(width:100)}
+                        {Text(selected.nom).frame(width:100)}
                     }
                 }.frame(height:220, alignment:.leading)
                 //.padding(.leading, CGFloat(taxion.dim * 80))
             } else {
-                Text("aucune fonction")
+                Text("aucune fonction dans la taxonomie")
             }
         }.padding()
-    }
-    
-    var taxionomy:Taxionomy {Taxionomy.besoins}
-    
-    func choisiréquipement() -> Void {
-        let taxion = taxionomy.find(tidid)
-        equipements.append(taxion)
-        tidid = ""
-        ajout = false
-    }
-    
-    @State var tidid:String = ""
-    @State var ajout = false
-    var equipementpick: some View {
-        VStack {
-            TidChildrenPicker($tidid, fonction.id, mot, choisiréquipement)
-            if equipements.count > 0 {
-                Button("annuler", action:{ ajout = false })
-            }
-        }
-    }
-    
-    @State var suppression = false
-    func delete(_ taxion:Taxion) {
-        var new : [Taxion] = []
-        for equipement in equipements {
-            if equipement.id != taxion.id { new.append(equipement) }
-        }
-        equipements = new
-    }
-    
-    public var body: some View {
-        VStack {
-            if fonctionpick {
-                pick
-            } else {
-                if ajout {
-                    HStack {
-                        Text("ajouter \(mot.indéterminé) de ")
-                        Button(action:{fonctionpick = true})
-                        { Text(fonction.nom) }
-                    }
-                }
-                if equipements.count > 0 {
-                   // ScrollView {
-                        ForEach($equipements) { selected in
-                            HStack {
-                                if suppression {
-                                    Button(action:{ delete(selected.wrappedValue) })
-                                    { Image(systemName: "minus").foregroundColor(.pink) }
-                                }
-                                Text(selected.wrappedValue.label).frame(width:100)
-                            }
-                        }
-                    //}.frame(alignment:.leading)
-                }
-                if ajout { equipementpick } else {
-                    Spacer()
-                    HStack {
-                        Button(action:{ suppression.toggle() })
-                        { Image(systemName: "minus").foregroundColor(.pink) }
-                        Spacer()
-                        Button(action:{
-                            ajout = true
-                            suppression = false
-                        })
-                        {Image(systemName: "plus")}
-                        //{Text("ajouter \(mot.indéterminé)")}
-                    }.padding()
-                }
-            }
-        }
     }
 }
 
 struct FonctionPrepicker : View {
     @State var taxion = Taxion()
-    @State var equipements : [Taxion] = []
-    var tidids: [String] = ["2-9-37", "2-9-34", "2-9-36"]
-    var include = false
+    var exclude: [String] = ["2-9-37", "2-9-34", "2-9-36"]
     
     var body: some View {
         VStack {
-            Text("Equipements").font(.title).padding()
-            FonctionPicker($taxion, $equipements, tidids, include,  {})
-            //Text(taxion.id)
-           // Text(taxion.nom)
-        }.frame(width:180, height:280).padding()
+            Text("Fonctions").font(.title2)
+            FonctionPicker($taxion, exclude)
+            Text(taxion.id)
+            Text(taxion.nom)
+        }.frame(width:180, height:300).padding()
     }
 }
 
 #Preview {
     HStack(spacing:20) {
         GroupBox("all") {
-            FonctionPrepicker(tidids:[])
+            FonctionPrepicker(exclude:[])
         }
         GroupBox("exclusion") {
             FonctionPrepicker()
         }
-        GroupBox("selection") {
-            FonctionPrepicker(include:true)
-        }
     }.padding()
 }
-
