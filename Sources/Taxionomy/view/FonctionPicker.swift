@@ -7,17 +7,17 @@
 
 import SwiftUI
 
-struct FonctionPicker: View {
+public struct FonctionPicker: View {
     @Binding var fonction:Taxion
     var choix:[Taxion] = []
     
-    init(_ fonction:Binding<Taxion>, _ exclude:[String]) {
+    public init(_ fonction:Binding<Taxion>, _ exclude:[String]) {
         _fonction = fonction
         choix = Taxionomy.fonctions.filter {item in !exclude.contains(item.id)}
     }
     
     
-    var body: some View {
+    public var body: some View {
         VStack {
             if choix.count > 0 {
                 ScrollView {
